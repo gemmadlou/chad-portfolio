@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {
-  Link
+  Link,
+  history
 } from 'react-router-dom';
-import deepcopy from 'deepcopy';
 
 class Navigation extends Component {
     constructor(props) {
@@ -20,13 +20,17 @@ class Navigation extends Component {
     }
     
     toggleActive = (isActive) => {
-        let state = deepcopy(this.state);
+        let state = Object.assign({}, this.state);
         state.active = (isActive === true || isActive === false) ? isActive : !this.state.active;
         state.menuClasses = [
             'navigation__menu',
             (state.active) ? 'navigation__menu--active' : ''
         ];
         this.setState(state);
+    }
+    
+    goTo(link) {
+      window.location.pathname = link;
     }
     
     render() {
@@ -39,13 +43,13 @@ class Navigation extends Component {
                 <div className={this.state.menuClasses.join(' ')}>
                   <ul className="menu">
                     <li className="menu__item">
-                      <Link className="menu__link" to="/">Projects</Link>
+                      <span className="menu__link" onClick={this.goTo.bind(this, '/')}>Projects</span>
                     </li>
                     <li className="menu__item">
-                      <Link className="menu__link" to="/about">About</Link>
+                      <span className="menu__link" onClick={this.goTo.bind(this, '/about')}>About</span>
                     </li>
                     <li className="menu__item">
-                      <Link className="menu__link" to="/contact">Contact</Link>
+                      <span className="menu__link" onClick={this.goTo.bind(this, '/contact')}>Contact</span>
                     </li>
                   </ul>
                 </div>

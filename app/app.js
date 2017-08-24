@@ -4,8 +4,11 @@ import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  browserHistory
 } from 'react-router-dom';
+
+import ScrollToTop from './src/Framework/Components/ScrollToTop';
 
 import ProjectsRoute from './src/Framework/ReactRoutes/Home';
 import AboutPage from './src/Framework/ReactRoutes/About';
@@ -18,7 +21,8 @@ class App extends Component {
   render() {
 
     return (
-      <Router>
+      <Router history={browserHistory}>
+        <ScrollToTop>
           <div className="page">
 
             <Link to="">
@@ -29,12 +33,13 @@ class App extends Component {
 
             <Navigation></Navigation>
 
-            <Route key="home" exact path="/" component={ProjectsRoute}/>
-            <Route key="about" exact path="/About" component={AboutPage}/>
-            <Route key="contact" exact path="/Contact" component={ContactPage}/>
-            <Route key="project" exact path="/project/:id" component={Project}/>
+            <Route exact path="/" component={ProjectsRoute}/>
+            <Route path="/about" component={AboutPage}/>
+            <Route path="/contact" component={ContactPage}/>
+            <Route path="/project/:id" component={Project}/>
 
           </div>
+        </ScrollToTop>
       </Router>
     )
 
