@@ -40,7 +40,9 @@ class Navigation extends Component {
                     <div className="hamburger__bar"></div>
                   </div>
                 </div>
-                <div className={this.state.menuClasses.join(' ')}>
+                <div={this.state.menuClasses.join(' ')}>
+                
+                hi
                   <ul className="menu">
                     <li className="menu__item">
                       <span className="menu__link" onClick={this.goTo.bind(this, '/')}>Projects</span>
