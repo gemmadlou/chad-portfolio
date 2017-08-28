@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { Link } from 'react-router-dom';
 import Logo from '../../Components/Logo/logo.js';
-console.log(Logo())
 
-class ProjectsRoute extends Component {
+
+class SplashRoute extends Component {
     constructor(props) {
         super(props);
         this.state = {
             work: [
                 {
-                    title: 'Barrio Viejo',
+                    title: 'hello Gemma!',
                     description: 'The best food places in Barcelona were in Borne',
                     client: 'Kapacucca',
                     image: 'http://placehold.it/1000x1000'
@@ -35,7 +35,6 @@ class ProjectsRoute extends Component {
     componentDidMount() {
 
     }
-
     render() {
          return (<div>
          <CSSTransitionGroup
@@ -45,6 +44,7 @@ class ProjectsRoute extends Component {
            transitionEnterTimeout={500}
            transitionLeaveTimeout={300}>
            <Logo></Logo>
+
             <div className="projects">
                 {this.state.work.map((item, index) => {
                     return <div key={index} className="projects__item">
@@ -70,4 +70,4 @@ class ProjectsRoute extends Component {
     }
 }
 
-export default ProjectsRoute;
+export default SplashRoute;
