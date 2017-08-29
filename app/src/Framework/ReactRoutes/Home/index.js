@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { Link } from 'react-router-dom';
 import Logo from '../../Components/Logo/logo.js';
+import Slider from 'jgb-slider';
+
+
 console.log(Logo())
 
 class ProjectsRoute extends Component {
@@ -9,8 +12,9 @@ class ProjectsRoute extends Component {
         super(props);
         this.state = {
             work: [
+              [
                 {
-                    title: 'Barrio Viejo',
+                    title: 'First Project',
                     description: 'The best food places in Barcelona were in Borne',
                     client: 'Kapacucca',
                     image: 'http://placehold.it/1000x1000'
@@ -27,13 +31,57 @@ class ProjectsRoute extends Component {
                     client: 'Client name',
 
                     image: 'http://placehold.it/1000x1000'
+                },
+
+              ],
+              [
+                 {
+                    title: 'The End of Year Convention',
+                    description: 'A little mini description describing the project',
+                    client: 'Client name',
+                    image: 'http://unsplash.it/1000/1000'
+                },
+                {
+                    title: 'First Project',
+                    description: 'The best food places in Barcelona were in Borne',
+                    client: 'Kapacucca',
+                    image: 'http://placehold.it/1000x1000'
+                },
+                 {
+                    title: 'The End of Year Convention',
+                    description: 'A little mini description describing the project',
+                    client: 'Client name',
+                    image: 'http://unsplash.it/1000/1000'
+                },
+              ],
+              [
+                  {
+                    title: 'Work Item',
+                    description: 'A little mini description describing the project',
+                    client: 'Client name',
+
+                    image: 'http://placehold.it/1000x1000'
+                },
+                {
+                    title: 'The End of Year Convention',
+                    description: 'A little mini description describing the project',
+                    client: 'Client name',
+                    image: 'http://unsplash.it/1000/1000'
+                },
+                {
+                    title: 'Work Item',
+                    description: 'A little mini description describing the project',
+                    client: 'Client name',
+
+                    image: 'http://placehold.it/1000x1000'
                 }
+              ]
             ]
         }
     }
 
     componentDidMount() {
-
+    	new Slider({ selector: '.prj-slider' });
     }
 
     render() {
@@ -44,11 +92,21 @@ class ProjectsRoute extends Component {
            transitionAppearTimeout={500}
            transitionEnterTimeout={500}
            transitionLeaveTimeout={300}>
+
+           <div className="prj-slider">
+              <div className="prj-slider__slider">
+
            <Logo></Logo>
-            <div className="projects">
-                {this.state.work.map((item, index) => {
-                    return <div key={index} className="projects__item">
-                            <div className="project">
+
+                {this.state.work.map((slide, index) => {
+                    return <div key={index} className="prj-slider__slide">
+                            <div className="projects">
+                            	{slide.map((item, index) => {
+
+                            	return <div key={index} className="projects__item">
+
+                                <div className="project">
+
                                 <img className="project__image" src={item.image} />
                                 <h2 className="project__title">
                                     {item.title}
@@ -64,6 +122,11 @@ class ProjectsRoute extends Component {
                             </div>
                         </div>
                 })}
+                </div>
+
+            </div>
+            })}
+            </div>
             </div>
         </CSSTransitionGroup>
     </div>   );

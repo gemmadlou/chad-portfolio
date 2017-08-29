@@ -1,40 +1,26 @@
 import React, { Component } from 'react';
+import { Text, Navigator, TouchableHighlight } from 'react';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { Link } from 'react-router-dom';
 import Logo from '../../Components/Logo/logo.js';
 
 
 class SplashRoute extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            work: [
-                {
-                    title: 'hello Gemma!',
-                    description: 'The best food places in Barcelona were in Borne',
-                    client: 'Kapacucca',
-                    image: 'http://placehold.it/1000x1000'
-                },
-                {
-                    title: 'The End of Year Convention',
-                    description: 'A little mini description describing the project',
-                    client: 'Client name',
-                    image: 'http://unsplash.it/1000/1000'
-                },
-                {
-                    title: 'Work Item',
-                    description: 'A little mini description describing the project',
-                    client: 'Client name',
-
-                    image: 'http://placehold.it/1000x1000'
-                }
-            ]
-        }
-    }
 
     componentDidMount() {
-
+      this.timeoutHandle = setTimeout(()=>{
+        return (
+           <Navigator
+             renderScene={(route, navigator) =>
+               <Home/>
+             }
+           />
+       )
+      }, 5000);
     }
+    componentWillUnmount(){
+     clearTimeout(this.timeoutHandle); // This is just necessary in the case that the screen is closed before the timeout fires, otherwise it would cause a memory leak that would trigger the transition regardless, breaking the user experience.
+}
     render() {
          return (<div>
          <CSSTransitionGroup
@@ -43,28 +29,13 @@ class SplashRoute extends Component {
            transitionAppearTimeout={500}
            transitionEnterTimeout={500}
            transitionLeaveTimeout={300}>
-           <Logo></Logo>
 
-            <div className="projects">
-                {this.state.work.map((item, index) => {
-                    return <div key={index} className="projects__item">
-                            <div className="project">
-                                <img className="project__image" src={item.image} />
-                                <h2 className="project__title">
-                                    {item.title}
-                                </h2>
-                                <p className="project__blurb">
-                                    {item.description} {index}
-                                </p>
+           <div className="welcome">
+           Welcome to our page!
+           </div>
 
-                                <span className="project__subtitle">
-                                    {item.client}
-                                </span>
-                                <Link to={`/project/${index}`} className="project__link"></Link>
-                            </div>
-                        </div>
-                })}
-            </div>
+
+
         </CSSTransitionGroup>
     </div>   );
     }

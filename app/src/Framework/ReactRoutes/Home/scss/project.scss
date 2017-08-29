@@ -4,42 +4,50 @@
 @import "../../../../Style/rules/vertical-rhythm";
 @import "../../../../Style/rules/spacing";
 
-.project {
-    background-color: $black;
-    color: $white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding-bottom: $baseline * 3;
-    padding-left: $gutter-small;
-    padding-right: $gutter-small;
-    padding-top: $baseline * 5;
-    position: relative;
-    width: 100%;
-
-    &__image {
-        height: 100%;
-        left: 0;
-        object-fit: cover;
-        opacity: .9;
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
-
-    &__title {
-        font-size: $font-size-medium;
-        line-height: line-height($font-size-medium);
-        margin: 0;
-        padding-bottom: $baseline;
+    .project {
+        background-color: $black;
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: $baseline * 3;
+        padding-left: $gutter-small;
+        padding-right: $gutter-small;
+        padding-top: $baseline * 5;
         position: relative;
-    }
+        width: 100%;
+
+        &__title {
+            font-size: $font-size-medium;
+            line-height: line-height($font-size-medium);
+            margin: 0;
+            padding-bottom: $baseline;
+            position: relative;
+            top: 0;
+            transition: top ease 0.5s;
+
+            &:hover {
+              top: -10px;
+            }
+        }
+
+        &__image {
+            height: 100%;
+            left: 0;
+            object-fit: cover;
+            opacity: .9;
+            position: absolute;
+            top: 0;
+            width: 100%;
+
+        }
 
      &__blurb {
         font-size: $font-size-xxsmall;
         line-height: line-height($font-size-xxsmall);
         padding-bottom: $baseline;
         position: relative;
+
     }
 
     &__subtitle {

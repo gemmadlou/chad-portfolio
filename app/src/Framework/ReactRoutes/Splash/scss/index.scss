@@ -1,0 +1,10 @@
+@import "../../../../Style/rules/breakpoints";
+
+.welcome {
+  color: #40ffe6;
+  font-size: 200px;
+  text-align: center;
+  top: 50%;
+  transform: translateY(50%);
+  position: relative;
+}

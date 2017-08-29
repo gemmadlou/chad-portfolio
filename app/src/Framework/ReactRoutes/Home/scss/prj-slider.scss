@@ -1,5 +1,24 @@
 @import '../../../../../../node_modules/jgb-slider/src/scss/slider';
 
-.slider {
+.prj-slider {
     @include slider(#ffffff);
+    display: block;
+
+  &__slide {
+    display: inline-block;
+    width: 100vw;
+    vertical-align: top;
+  }
+  &__prev-slide {
+    left: 20px;
+    bottom: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+  }
+  &__next-slide {
+    right: 20px;
+    bottom: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+  }
 }
