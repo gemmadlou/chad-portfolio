@@ -9,7 +9,7 @@ class SplashRoute extends Component {
 
     componentDidMount() {
       this.timeoutHandle = setTimeout(()=>{
-        window.location.pathname = '/projects';
+      window.location.pathname = '/projects';
       }, 5000);
     }
     componentWillUnmount(){
@@ -18,18 +18,21 @@ class SplashRoute extends Component {
     }
     render() {
          return (
-            <div className="splash">
-                <div className="baseline">
-                    <div className="welcome">
+          <div className="splash">
+            <Logo></Logo>
+              <div className="splash__position">
+                <div className="splash__baseline">
+                    <div className="splash__welcome">
                         Welcome to our
                     </div>
                 </div>
-                <div className="baseline">
-                    <div className="welcome">
+              <div className="splash__baseline">
+                  <div className="splash__welcome">
                         page!
-                    </div>
-                </div>
+                  </div>
+              </div>
             </div>
+          </div>
         );
     }
 }

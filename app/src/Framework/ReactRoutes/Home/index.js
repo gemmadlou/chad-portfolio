@@ -5,7 +5,6 @@ import Logo from '../../Components/Logo/logo.js';
 import Slider from 'jgb-slider';
 
 
-console.log(Logo())
 
 class ProjectsRoute extends Component {
     constructor(props) {
@@ -111,10 +110,11 @@ class ProjectsRoute extends Component {
                                 <h2 className="project__title">
                                     {item.title}
                                 </h2>
-                                <p className="project__blurb">
-                                    {item.description} {index}
-                                </p>
-
+                                  <div className="project__bassline">
+                                    <div className="project__blurb">
+                                        {item.description} {index}
+                                    </div>
+                                  </div>
                                 <span className="project__subtitle">
                                     {item.client}
                                 </span>
