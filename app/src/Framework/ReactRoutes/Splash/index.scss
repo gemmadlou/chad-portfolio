@@ -1,15 +1,25 @@
-@import "../../../../Style/rules/breakpoints";
-.position {
-  top: 50%;
-  transform: translateY(50%);
-  position: relative;
+@import "../../../Style/rules/breakpoints";
+
+.splash {
+    background-color: red;
+    top: 0;
+    position: relative;
+    
+    &__baseline {
+        
+    }
+    
+    &__text {
+        
+    }
 }
 .baseline {
   line-height: 200px;
   overflow-y: hidden;
-  top: 50%;
+  transform: translateY(50%);
 
 }
+
 .welcome {
 
   color: #40ffe6;
@@ -24,6 +34,7 @@
    overflow-y: hidden;
    z-index: 0;
 }
+
 @keyframes moving {
    from {transform: translateY(80%);}
    to {transform: translateY(0%);}

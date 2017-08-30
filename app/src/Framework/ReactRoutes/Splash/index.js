@@ -9,42 +9,28 @@ class SplashRoute extends Component {
 
     componentDidMount() {
       this.timeoutHandle = setTimeout(()=>{
-        return (
-           <Navigator
-             renderScene={(route, navigator) =>
-               <Home/>
-             }
-           />
-       )
+        window.location.pathname = '/projects';
       }, 5000);
     }
     componentWillUnmount(){
-     clearTimeout(this.timeoutHandle); // This is just necessary in the case that the screen is closed before the timeout fires, otherwise it would cause a memory leak that would trigger the transition regardless, breaking the user experience.
-}
+      // This is just necessary in the case that the screen is closed before the timeout fires, otherwise it would cause a memory leak that would trigger the transition regardless, breaking the user experience.
+     clearTimeout(this.timeoutHandle);
+    }
     render() {
-         return (<div>
-         <CSSTransitionGroup
-           transitionName="example"
-           transitionAppear={true}
-           transitionAppearTimeout={500}
-           transitionEnterTimeout={500}
-           transitionLeaveTimeout={300}>
-           <div className="position">
-           <div className="baseline">
-             <div className="welcome">
-             Welcome to our
-             </div>
-           </div>
-           <div className="baseline">
-             <div className="welcome">
-             page!
-             </div>
-           </div>
-           </div>
-
-
-        </CSSTransitionGroup>
-    </div>   );
+         return (
+            <div className="splash">
+                <div className="baseline">
+                    <div className="welcome">
+                        Welcome to our
+                    </div>
+                </div>
+                <div className="baseline">
+                    <div className="welcome">
+                        page!
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 
