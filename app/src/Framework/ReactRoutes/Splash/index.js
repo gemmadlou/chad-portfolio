@@ -29,11 +29,18 @@ class SplashRoute extends Component {
            transitionAppearTimeout={500}
            transitionEnterTimeout={500}
            transitionLeaveTimeout={300}>
-
-           <div className="welcome">
-           Welcome to our page!
+           <div className="position">
+           <div className="baseline">
+             <div className="welcome">
+             Welcome to our
+             </div>
            </div>
-
+           <div className="baseline">
+             <div className="welcome">
+             page!
+             </div>
+           </div>
+           </div>
 
 
         </CSSTransitionGroup>

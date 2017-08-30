@@ -1,10 +1,30 @@
 @import "../../../../Style/rules/breakpoints";
-
-.welcome {
-  color: #40ffe6;
-  font-size: 200px;
-  text-align: center;
+.position {
   top: 50%;
   transform: translateY(50%);
   position: relative;
+}
+.baseline {
+  line-height: 200px;
+  overflow-y: hidden;
+  top: 50%;
+
+}
+.welcome {
+
+  color: #40ffe6;
+  font-size: 200px;
+  text-align: center;
+  top: 30%;
+  transform: translateY(0%);
+  position: relative;
+  -webkit-animation: moving 1s;
+   animation: moving 1s;
+   line-height: 230px;
+   overflow-y: hidden;
+   z-index: 0;
+}
+@keyframes moving {
+   from {transform: translateY(80%);}
+   to {transform: translateY(0%);}
 }
