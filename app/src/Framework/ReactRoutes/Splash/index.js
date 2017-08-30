@@ -20,21 +20,21 @@ class SplashRoute extends Component {
          return (
           <div className="splash">
             <Logo></Logo>
-              <div className="splash__position">
-                <div className="splash__baseline">
-                    <div className="splash__welcome">
-                        Welcome to our
-                    </div>
-                </div>
+            <div className="splash__position">
               <div className="splash__baseline">
                   <div className="splash__welcome">
-                        page!
+                      Welcome to our
                   </div>
+              </div>
+              <div className="splash__baseline">
+                <div className="splash__welcome">
+                      page!
+                </div>
               </div>
             </div>
           </div>
-        );
-    }
+          );
+      }
 }
 
 export default SplashRoute;

@@ -27,6 +27,7 @@
             transition: top ease 0.09s;
             z-index: 1;
         }
+        
         &__image {
             height: 100%;
             left: 0;
@@ -36,6 +37,7 @@
             top: 0;
             width: 100%;
         }
+
         &__bassline {
             overflow-y: hidden;
             overflow-x: hidden;
@@ -46,7 +48,7 @@
             height: 40px;
         }
 
-         &__blurb {
+        &__blurb {
             font-size: $font-size-xxsmall;
             line-height: line-height($font-size-xxsmall);
             padding-bottom: $baseline;
