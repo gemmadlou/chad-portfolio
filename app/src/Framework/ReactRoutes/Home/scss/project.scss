@@ -21,13 +21,13 @@
             font-size: $font-size-medium;
             line-height: line-height($font-size-medium);
             margin: 0;
-            padding-bottom: $baseline;
+            padding-bottom: 0.8rem;
             position: relative;
             top: 12px;
-            transition: top ease 0.09s;
+            transition: top ease 0.3s;
             z-index: 1;
         }
-        
+
         &__image {
             height: 100%;
             left: 0;
@@ -56,7 +56,7 @@
             color: #40ffe6;
             overflow-y: hidden;
             top: 40px;
-            transition: top ease 0.09s;
+            transition: top ease 0.3s;
             z-index: 1;
             line-height: 10px;
             color: white;
@@ -66,7 +66,7 @@
             line-height: line-height($font-size-xxsmall);
             font-size: $font-size-xxsmall;
             position: relative;
-            transition: bottom ease 0.09s;
+            transition: bottom ease 0.3s;
             z-index: 1;
             bottom: 0;
         }
@@ -89,7 +89,7 @@
             position: absolute;
             right: 0;
             top: 0;
-            z-index: 1;
+            z-index: 0;
         }
 
     @media (min-width: $medium) {
@@ -117,12 +117,22 @@
         }
     }
 
-    @media (min-width: $x-large) {
+    @media (smin-width: $x-large) {
         padding-right: 8rem;
     }
 }
 @media (max-width: 750px){
     .project__blurb {
         padding-top: 10px;
-  }
+        line-height: 20px;
+
+    }
+    .project:hover > .project__bassline > .project__blurb {
+        top: -10px;
+    }
+}
+@media (max-width: 250px){
+    .project__blurb {
+        line-height: 1px;
+    }
 }

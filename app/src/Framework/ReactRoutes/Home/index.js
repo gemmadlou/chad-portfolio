@@ -73,6 +73,26 @@ class ProjectsRoute extends Component {
                     client: 'Client name',
 
                     image: 'http://placehold.it/1000x1000'
+                },
+              ],
+              [
+                 {
+                    title: 'The End of Year Convention',
+                    description: 'A little mini description describing the project',
+                    client: 'Client name',
+                    image: 'http://unsplash.it/1000/1000'
+                },
+                {
+                    title: 'First Project',
+                    description: 'The best food places in Barcelona were in Borne',
+                    client: 'Kapacucca',
+                    image: 'http://placehold.it/1000x1000'
+                },
+                 {
+                    title: 'The End of Year Convention',
+                    description: 'A little mini description describing the project',
+                    client: 'Client name',
+                    image: 'http://unsplash.it/1000/1000'
                 }
               ]
             ]
@@ -99,6 +119,7 @@ class ProjectsRoute extends Component {
 
                 {this.state.work.map((slide, index) => {
                     return <div key={index} className="prj-slider__slide">
+                        <div className="slider-handler-background"></div>
                             <div className="projects">
                             	{slide.map((item, index) => {
 

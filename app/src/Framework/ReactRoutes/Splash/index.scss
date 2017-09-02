@@ -1,8 +1,7 @@
 @import "../../../Style/rules/breakpoints";
 
     .splash {
-        background-color: red;
-        top: 0;
+        background-color: black;
         min-height: 100vh;
         text-align: center;
         overflow-y: hidden;
@@ -10,7 +9,11 @@
         position: relative;
 
         &__position {
-            transform: translateY(120px);
+            transform: translateY(-70%);
+            position: absolute;
+            top: 70%;
+            width: 100%;
+            margin: 0 auto;
         }
 
         &__baseline {
@@ -19,11 +22,11 @@
             line-height: 200px;
             line-height: 15vw;
         }
-        
+
         &__welcome {
             overflow-y: hidden;
             overflow-x: hidden;
-            color: #40ffe6;
+            color: white;
             font-size: 200px;
             font-size: 12vw;
             transform: translateY(0%);
@@ -31,7 +34,7 @@
             -webkit-animation: moving 0.7s;
             animation: moving 0.7s;
             line-height: 230px;
-            line-height: 20vw;
+            line-height: 14vw;
             z-index: 0;
           }
     }
