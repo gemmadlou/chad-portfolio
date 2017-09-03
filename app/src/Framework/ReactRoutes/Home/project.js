@@ -5,6 +5,31 @@ import Slider from 'jgb-slider';
 
 class Project extends Component {
     
+    constructor(props) {
+        super(props);
+        this.state = {}
+        this.state.slider = {
+          text: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur',
+          images: [
+            {
+              src: 'http://unsplash.it/1200/500?image=123'
+            },
+            {
+              src: 'http://unsplash.it/1200/500?image=123'
+            },
+            {
+              src: 'http://unsplash.it/1200/500?image=123'
+            },
+            {
+              src: 'http://unsplash.it/1200/500?image=123'
+            },
+            {
+              src: 'http://unsplash.it/1200/500?image=123'
+            }
+          ]
+        }
+    }
+    
     componentDidMount() {
       new Slider({ selector: '.slider' });
     }
@@ -157,26 +182,17 @@ class Project extends Component {
           
           <div className="prj-slider">
             <div className="prj-slider__blurb">
-              Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
+              {this.state.slider.text}
             </div>
             <div className="prj-slider__slide">
               <div className="slider">
                 <ol className="slider__slider">
-                  <li className="slider__slide">
-                      <img src="http://unsplash.it/1200/500" />
-                  </li>
-                  <li className="slider__slide">
-                      <img src="http://unsplash.it/1200/500?image=123" />
-                  </li>
-                  <li className="slider__slide">
-                      <img src="http://unsplash.it/1200/500?image=173" />
-                  </li>
-                  <li className="slider__slide">
-                      <img src="http://unsplash.it/1200/500?image=143" />
-                  </li>
-                  <li className="slider__slide">
-                      <img src="http://unsplash.it/1200/500?image=423" />
-                  </li>
+                
+                  {this.state.slider.images.map((img, key) => {
+                    return  <li key={key} className="slider__slide">
+                        <img src={img.src} />
+                    </li>
+                  })}
                 </ol>
               </div>
             </div>
