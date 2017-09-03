@@ -35,20 +35,20 @@
             justify-content: center;
             line-height: line-height($body-font-medium);
             padding: 0 $gutter-medium;
-            width: (100% / 3);
+            width: $one-third;
         }
 
         &__main-image-wrapper {
             height: 100vh;
             order: 2;
             position: relative;
-            width: (100% / 3 * 2);
+            width: $two-thirds;
         }
 
         &__small-image-wrapper {
             height: 50vh;
             position: relative;
-            width: (100% / 3);
+            width: $one-third;
         }
 
         &__image {

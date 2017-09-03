@@ -1,5 +1,65 @@
-@import '../../../../../../node_modules/jgb-slider/src/scss/slider';
+@import '../../../../Style/rules/index';
 
-.slider {
-    @include slider(#ffffff);
+.prj-slider {
+    @extend %component-vertical-spacing;
+    
+    background-color: $white;
+    position: relative;
+    
+    @media (min-width: $medium) {
+        display: flex;
+        align-items: flex-end;
+        
+        @media (orientation: landscape) {
+            min-height: 100vh;
+        }
+    }
+    
+    &__blurb {
+        @include guttering();
+        
+        font-size: $body-font-base;
+        margin-bottom: $font-space-small;
+        
+        @media (min-width: $medium) {
+            font-size: $body-font-medium;
+            flex-basis: $one-third;
+        }
+    }
+    
+    &__slide {
+        
+        @include guttering(('medium', 'large', 'x-large'), 'right');
+        
+        @media (min-width: $medium) {
+            flex-basis: $two-thirds;
+        }
+        
+        .slider {
+            background: $lightgrey;
+            height: 0;
+            padding-bottom: 70%;
+            
+            img {
+                height: 100%;
+                left: 0;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                width: 100%;
+            }
+        }
+        
+        .slider__slider {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+        
+        .slider__slide {
+            height: 100%;
+            position: relative;
+        }
+    }
 }

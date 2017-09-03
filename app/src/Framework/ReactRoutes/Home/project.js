@@ -155,7 +155,7 @@ class Project extends Component {
   
           <ImageGallery style={{display: 'none'}}></ImageGallery>
           
-          <div className="prj-slider" style={{display: 'block'}}>
+          <div className="prj-slider">
             <div className="prj-slider__blurb">
               Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
             </div>

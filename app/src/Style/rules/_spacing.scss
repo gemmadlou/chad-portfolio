@@ -7,3 +7,49 @@ $gutter-xlarge: 6rem;
 $component-spacing: $baseline * 2;
 $component-spacing-small: $baseline * 3;
 $component-spacing-medium: $baseline * 6;
+
+$guttering: (
+    base: $gutter-base,
+    'small': $gutter-small,
+    'medium': $gutter-medium,
+    'large': $gutter-large,
+    'x-large': $gutter-xlarge,
+    'xx-large': $gutter-xlarge,
+    'xxx-large': $gutter-xlarge
+);
+
+@mixin guttering ($sizes: ('base', 'medium', 'large', 'x-large'), $direction: 'all') {
+    
+    @each $size in $sizes {
+        
+        @include media($size) {
+            @if $direction == 'all' { 
+                padding-left: map-get($guttering, $size);
+                padding-right: map-get($guttering, $size);
+            }
+            
+            @if $direction == 'left' {
+                padding-left: map-get($guttering, $size);
+            }
+            
+            @if $direction == 'right' {
+                padding-right: map-get($guttering, $size);
+            }   
+        }
+    }
+}
+
+%component-vertical-spacing {
+    padding-bottom: $component-spacing;
+    padding-top: $component-spacing;
+    
+    @media only screen and (min-width: $small) {
+        padding-bottom: $component-spacing-small;
+        padding-top: $component-spacing-small;
+    }
+    
+    @media only screen and (min-width: $medium) {
+        padding-bottom: $component-spacing-medium;
+        padding-top: $component-spacing-medium;
+    }
+}
