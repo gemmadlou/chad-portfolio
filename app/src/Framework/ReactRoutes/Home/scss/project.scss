@@ -4,57 +4,93 @@
 @import "../../../../Style/rules/vertical-rhythm";
 @import "../../../../Style/rules/spacing";
 
-.project {
-    background-color: $black;
-    color: $white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding-bottom: $baseline * 3;
-    padding-left: $gutter-small;
-    padding-right: $gutter-small;
-    padding-top: $baseline * 5;
-    position: relative;
-    width: 100%;
-
-    &__image {
-        height: 100%;
-        left: 0;
-        object-fit: cover;
-        opacity: .9;
-        position: absolute;
-        top: 0;
+    .project {
+        background-color: $black;
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: $baseline * 3;
+        padding-left: $gutter-small;
+        padding-right: $gutter-small;
+        padding-top: $baseline * 5;
+        position: relative;
         width: 100%;
-    }
 
-    &__title {
-        font-size: $font-size-medium;
-        line-height: line-height($font-size-medium);
-        margin: 0;
-        padding-bottom: $baseline;
-        position: relative;
-    }
+        &__title  {
+            font-size: $font-size-medium;
+            line-height: line-height($font-size-medium);
+            margin: 0;
+            padding-bottom: 0.8rem;
+            position: relative;
+            top: 12px;
+            transition: top ease 0.3s;
+            z-index: 1;
+        }
 
-     &__blurb {
-        font-size: $font-size-xxsmall;
-        line-height: line-height($font-size-xxsmall);
-        padding-bottom: $baseline;
-        position: relative;
-    }
+        &__image {
+            height: 100%;
+            left: 0;
+            object-fit: cover;
+            opacity: .9;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
 
-    &__subtitle {
-        line-height: line-height($font-size-xxsmall);
-        font-size: $font-size-xxsmall;
-        position: relative;
-    }
+        &__bassline {
+            overflow-y: hidden;
+            overflow-x: hidden;
+            top: 0;
+            line-height: 40px;
+            line-height: 15vw;
+            z-index: 0;
+            height: 40px;
+        }
 
-    &__link {
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
+        &__blurb {
+            font-size: $font-size-xxsmall;
+            line-height: line-height($font-size-xxsmall);
+            padding-bottom: $baseline;
+            position: relative;
+            color: #40ffe6;
+            overflow-y: hidden;
+            top: 40px;
+            transition: top ease 0.3s;
+            z-index: 1;
+            line-height: 10px;
+            color: white;
+        }
+
+        &__subtitle {
+            line-height: line-height($font-size-xxsmall);
+            font-size: $font-size-xxsmall;
+            position: relative;
+            transition: bottom ease 0.3s;
+            z-index: 1;
+            bottom: 0;
+        }
+
+        &:hover > &__title {
+            top: -23px;
+        }
+
+        &:hover > &__subtitle {
+            bottom: -40px;
+        }
+
+        &:hover > &__bassline > &__blurb {
+            top: 0;
+        }
+
+        &__link {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 0;
+        }
 
     @media (min-width: $medium) {
         padding-left: $gutter-medium;
@@ -81,7 +117,22 @@
         }
     }
 
-    @media (min-width: $x-large) {
+    @media (smin-width: $x-large) {
         padding-right: 8rem;
+    }
+}
+@media (max-width: 750px){
+    .project__blurb {
+        padding-top: 10px;
+        line-height: 20px;
+
+    }
+    .project:hover > .project__bassline > .project__blurb {
+        top: -10px;
+    }
+}
+@media (max-width: 250px){
+    .project__blurb {
+        line-height: 1px;
     }
 }

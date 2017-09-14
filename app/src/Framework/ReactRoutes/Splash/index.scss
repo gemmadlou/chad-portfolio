@@ -1,0 +1,45 @@
+@import "../../../Style/rules/breakpoints";
+
+    .splash {
+        background-color: black;
+        min-height: 100vh;
+        text-align: center;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        position: relative;
+
+        &__position {
+            transform: translateY(-70%);
+            position: absolute;
+            top: 70%;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        &__baseline {
+            overflow-y: hidden;
+            overflow-x: hidden;
+            line-height: 200px;
+            line-height: 15vw;
+        }
+
+        &__welcome {
+            overflow-y: hidden;
+            overflow-x: hidden;
+            color: white;
+            font-size: 200px;
+            font-size: 12vw;
+            transform: translateY(0%);
+            position: relative;
+            -webkit-animation: moving 0.7s;
+            animation: moving 0.7s;
+            line-height: 230px;
+            line-height: 14vw;
+            z-index: 0;
+          }
+    }
+
+@keyframes moving {
+   from {transform: translateY(80%);}
+   to {transform: translateY(0%);}
+}
