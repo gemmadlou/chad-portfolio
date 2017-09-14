@@ -6,10 +6,10 @@ exports.files = {
       'app.js': /^app/
     }
   },
-  stylesheets: {joinTo: 'app.css'}
+  stylesheets: {
+    joinTo: 'app.css'
+  }
 };
-
-
 
 exports.server = {
   port: 8080,
