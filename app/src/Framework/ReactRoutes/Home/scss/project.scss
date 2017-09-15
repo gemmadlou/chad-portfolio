@@ -43,7 +43,8 @@
         content: '';
         height: 100%;
         left: 0;
-        opacity: .1;
+        mix-blend-mode: color;
+        opacity: .3;
         position: absolute;
         top: 0;
         width: 100%;
