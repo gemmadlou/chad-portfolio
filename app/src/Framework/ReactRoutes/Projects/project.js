@@ -184,7 +184,7 @@ class Project extends Component {
             </div>
           </div>
   
-          <ImageGallery style={{display: 'none'}}></ImageGallery>
+          <ImageGallery></ImageGallery>
           
           <div className="prj-slider">
             <div className="prj-slider__blurb">

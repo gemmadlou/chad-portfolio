@@ -43,7 +43,7 @@ class Navigation extends Component {
                 <div className={this.state.menuClasses.join(' ')}>
                   <ul className="menu">
                     <li className="menu__item">
-                      <span className="menu__link" onClick={this.goTo.bind(this, '/')}>Projects</span>
+                      <span className="menu__link" onClick={this.goTo.bind(this, '/projects')}>Projects</span>
                     </li>
                     <li className="menu__item">
                       <span className="menu__link" onClick={this.goTo.bind(this, '/about')}>About</span>
