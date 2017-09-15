@@ -100,6 +100,10 @@ class ProjectsRoute extends Component {
     	new Slider({ selector: '.prj-slider' });
     }
 
+    goTo(page) {
+        window.location.href = "/project/" + page;
+    }
+
     render() {
          return (<div>
          <CSSTransitionGroup
@@ -122,7 +126,7 @@ class ProjectsRoute extends Component {
 
                             	return <div key={index} className="projects__item">
 
-                                <div className="project">
+                                <div className="project" onClick={this.goTo.bind(this, index)}>
 
                                     <img className="project__image" src={item.image} />
                                     <h2 className="project__title">
@@ -136,7 +140,6 @@ class ProjectsRoute extends Component {
                                     <span className="project__subtitle">
                                         {item.client}
                                     </span>
-                                    <Link to={`/project/${index}`} className="project__link"></Link>
                              </div>
                         </div>
                 })}
