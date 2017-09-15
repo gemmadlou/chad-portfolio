@@ -16,20 +16,19 @@ class ProjectsRoute extends Component {
                     title: 'First Project',
                     description: 'The best food places in Barcelona were in Borne',
                     client: 'Kapacucca',
-                    image: 'http://placehold.it/1000x1000'
+                    image: 'https://unsplash.it/1000/1000?image=889'
                 },
                 {
                     title: 'The End of Year Convention',
                     description: 'A little mini description describing the project',
                     client: 'Client name',
-                    image: 'http://unsplash.it/1000/1000'
+                    image: 'https://unsplash.it/1000/1000?image=891'
                 },
                 {
                     title: 'Work Item',
                     description: 'A little mini description describing the project',
                     client: 'Client name',
-
-                    image: 'http://placehold.it/1000x1000'
+                    image: 'https://unsplash.it/1000/1000?image=892'
                 },
 
               ],
@@ -58,7 +57,6 @@ class ProjectsRoute extends Component {
                     title: 'Work Item',
                     description: 'A little mini description describing the project',
                     client: 'Client name',
-
                     image: 'http://placehold.it/1000x1000'
                 },
                 {
@@ -71,7 +69,6 @@ class ProjectsRoute extends Component {
                     title: 'Work Item',
                     description: 'A little mini description describing the project',
                     client: 'Client name',
-
                     image: 'http://placehold.it/1000x1000'
                 },
               ],
@@ -127,20 +124,20 @@ class ProjectsRoute extends Component {
 
                                 <div className="project">
 
-                                <img className="project__image" src={item.image} />
-                                <h2 className="project__title">
-                                    {item.title}
-                                </h2>
-                                <div className="project__bassline">
-                                    <div className="project__blurb">
-                                        {item.description} {index}
+                                    <img className="project__image" src={item.image} />
+                                    <h2 className="project__title">
+                                        {item.title}
+                                    </h2>
+                                    <div className="project__bassline">
+                                        <div className="project__blurb">
+                                            {item.description}
+                                        </div>
                                     </div>
-                                </div>
-                                <span className="project__subtitle">
-                                    {item.client}
-                                </span>
-                                <Link to={`/project/${index}`} className="project__link"></Link>
-                            </div>
+                                    <span className="project__subtitle">
+                                        {item.client}
+                                    </span>
+                                    <Link to={`/project/${index}`} className="project__link"></Link>
+                             </div>
                         </div>
                 })}
                 </div>

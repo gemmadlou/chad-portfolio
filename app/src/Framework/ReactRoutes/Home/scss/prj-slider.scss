@@ -4,23 +4,30 @@
 .prj-slider {
     @include slider(#ffffff);
     display: block;
+    z-index: 1;
 
-  &__slide {
-    display: inline-block;
-    width: 100vw;
-    vertical-align: top;
-  }
+    &__slide {
+        display: inline-block;
+        width: 100vw;
+        vertical-align: top;
+    }
 
-  &__prev-slide {
-    top: 50%;
-    transform: translateY(-50%);
-    left: -100px;
-    position: absolute;
-    border-radius: 50%;
-    width: 140px;
-    height: 140px;
-    background-color: rgba(24, 24, 24, 0.85);
-    z-index: 2;
+    &__prev-slide {
+        display: none;
+
+        @include media('medium') {
+            display: inline-block;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -100px;
+            position: absolute;
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            background-color: rgba(24, 24, 24, 0.85);
+            z-index: 2;
+        }
+    
   }
 
   &__prev-slide::before {
@@ -53,15 +60,21 @@
   }
 
   &__next-slide {
-    top: 50%;
-    transform: translateY(-50%);
-    right: -100px;
-    position: absolute;
-    border-radius: 50%;
-    width: 140px;
-    height: 140px;
-    background-color: rgba(24, 24, 24, 0.85);
-    z-index: 2;
+    display: none;
+
+    @include media('medium') {
+        display: inline-block;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -100px;
+        position: absolute;
+        border-radius: 50%;
+        width: 140px;
+        height: 140px;
+        background-color: rgba(24, 24, 24, 0.85);
+        z-index: 2;
+    }
+    
   }
 
   &__next-slide::before {
