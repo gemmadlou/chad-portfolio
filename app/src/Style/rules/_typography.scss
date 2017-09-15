@@ -1,5 +1,23 @@
 @import 'vertical-rhythm';
 
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function line-height($font-size) {
+    @for $i from 1 to 8 {
+      $baseline-unit: strip-units($baseline);
+      $prev-line-height: ($i - 1) * $baseline-unit;
+      $line-height: $i * $baseline-unit;
+      $font-size-unit: strip-units($font-size);
+
+      @if $font-size-unit > $prev-line-height and $font-size-unit < $line-height {
+        @return $baseline * $i;
+      }
+    }
+    @return $font-size;
+}
+
 $font-size-super: $baseline * 6;
 $font-size-xxxlarge: $baseline * 4.6;
 $font-size-xxlarge: $baseline * 3.4;
@@ -17,20 +35,12 @@ $font-space-small: $baseline * 2;
 $font-space-medium: $baseline * 4;
 $font-space-large: $baseline * 6;
 
-@function strip-units($number) {
-  @return $number / ($number * 0 + 1);
-}
+@mixin body-font {
+    font-size: $body-font-base;
+    line-height: line-height($body-font-base);
 
-@function line-height($font-size) {
-    @for $i from 1 to 8 {
-      $baseline-unit: strip-units($baseline);
-      $prev-line-height: ($i - 1) * $baseline-unit;
-      $line-height: $i * $baseline-unit;
-      $font-size-unit: strip-units($font-size);
-
-      @if $font-size-unit > $prev-line-height and $font-size-unit < $line-height {
-        @return $baseline * $i;
-      }
+    @include media('medium') {
+        font-size: $body-font-medium;
+        line-height: line-height($body-font-medium);
     }
-    @return $font-size;
 }

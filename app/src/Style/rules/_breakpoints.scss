@@ -23,12 +23,9 @@ $max-width: $xx-large;
     }
     
     @if map-has-key($sizes, $breakpoint) {
-    content: #{$breakpoint + " " + map-get($sizes, $breakpoint)};
         @media only screen and (min-width: map-get($sizes, $breakpoint)) {
             @content;
         }
     }
-    
-    
     
 }
