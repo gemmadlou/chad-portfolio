@@ -1,8 +1,11 @@
 import React from 'react';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import Logo from '../../Components/Logo/logo.js';
 
 const AboutPage = () => {
-    return (
+    return (<div>
+        <Logo></Logo>
+
         <div className="about">
             <div className="about__image-container">
                 <img src="http://unsplash.it/1000/1000" className="about__image" />
@@ -50,7 +53,7 @@ const AboutPage = () => {
                 </div>
             </div>
         </div>
-    )
+    </div>)
 }
 
 export default AboutPage;
