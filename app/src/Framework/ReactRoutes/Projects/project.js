@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Hero from '../../Components/Hero/hero.js';
+import Logo from '../../Components/Logo/logo.js';
 import ImageGallery from '../../Components/Image-Gallery/imagegallery.js';
 import Slider from 'jgb-slider';
 
@@ -41,13 +42,16 @@ class Project extends Component {
     render() {
       return (
         <div>
-  
-          <Hero></Hero>
+          <Logo></Logo>
+
+          <Hero 
+            image="https://unsplash.it/1000/1000?image=893"
+            title="Working with Nero"></Hero>
   
           <div className="prj-summary">
             <div className="prj-summary__lead">
               <span className="prj-summary__lead-text">
-                  Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
+                  The brief was simple. Create a brand that meant something to young people.
               </span>
             </div>
             <ul className="prj-summary__meta">
@@ -71,17 +75,17 @@ class Project extends Component {
           <div className="prj-minimal-info">
             <div className="prj-minimal-info__text">
               <div className="prj-minimal-info__text-title">
-                  Contextual
+                  Photography
               </div>
               <div className="prj-minimal-info__text-content">
-                  Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
+                  Photos were taken over 3 nights in Treblinka to capture the essence of the Nero team.
               </div>
             </div>
             <div className="prj-minimal-info__main-image-wrapper">
-              <img className="prj-minimal-info__image" src="http://placehold.it/800x800" />
+              <img className="prj-minimal-info__image" src="https://unsplash.it/1000/1000?image=903" />
             </div>
             <div className="prj-minimal-info__small-image-wrapper">
-              <img className="prj-minimal-info__image" src="http://placehold.it/800x800" />
+              <img className="prj-minimal-info__image" src="https://unsplash.it/1000/1000?image=901" />
             </div>
           </div>
   
@@ -157,24 +161,26 @@ class Project extends Component {
           
           <div className="prj-dual-hero">
             <div className="prj-dual-hero__image-wrapper">
-              <img className="prj-dual-hero__image" src="https://placeimg.com/1000/1000/arch" />
+              <img className="prj-dual-hero__image" src="https://unsplash.it/1000/1000?image=907" />
             </div>
             <div className="prj-dual-hero__image-wrapper">
-              <img className="prj-dual-hero__image" src="https://placeimg.com/1000/1000/arch" />
+              <img className="prj-dual-hero__image" src="https://unsplash.it/1000/1000?image=911" />
             </div>
           </div>
   
-          <Hero></Hero>
+          <Hero
+            image="https://unsplash.it/1000/1000?image=96"
+            title="Nero on timeout"></Hero>
   
           <div className="prj-minimal-info">
             <div className="prj-minimal-info__text">
-              Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
+              Reconciling their brand with their culture and physical space proved a unique challenge
             </div>
             <div className="prj-minimal-info__main-image-wrapper">
-              <img className="prj-minimal-info__image" src="https://placeimg.com/1000/1000/arch" />
+              <img className="prj-minimal-info__image" src="https://unsplash.it/1000/1000?image=946" />
             </div>
             <div className="prj-minimal-info__small-image-wrapper">
-              <img className="prj-minimal-info__image" src="https://placeimg.com/1000/1000/arch" />
+              <img className="prj-minimal-info__image" src="https://unsplash.it/1000/1000?image=945" />
             </div>
           </div>
   
@@ -198,7 +204,6 @@ class Project extends Component {
             </div>
           </div>
   
-          <Hero></Hero>
         </div>
       );
     }
