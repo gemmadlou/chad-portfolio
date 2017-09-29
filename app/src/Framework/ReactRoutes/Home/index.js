@@ -97,7 +97,9 @@ class ProjectsRoute extends Component {
     }
 
     componentDidMount() {
-    	new Slider({ selector: '.prj-slider' });
+        Slider({
+            'selector': '.home-slider'
+        });
     }
 
     goTo(page) {
@@ -106,50 +108,43 @@ class ProjectsRoute extends Component {
 
     render() {
          return (<div>
-         <CSSTransitionGroup
-           transitionName="example"
-           transitionAppear={true}
-           transitionAppearTimeout={500}
-           transitionEnterTimeout={500}
-           transitionLeaveTimeout={300}>
-
-           <div className="prj-slider">
-              <div className="prj-slider__slider">
 
            <Logo></Logo>
 
+           <div className="home-slider">
+              <ol className="home-slider__slider" style={{width: this.state.work.length * 100 + '%'}}>
+
                 {this.state.work.map((slide, index) => {
-                    return <div key={index} className="prj-slider__slide">
-                        <div className="slider-handler-background"></div>
-                            <div className="projects">
-                            	{slide.map((item, index) => {
+                    return <li key={index} className="home-slider__slide">
+                                <div className="projects">
+                                    {slide.map((item, index) => {
 
-                            	return <div key={index} className="projects__item">
+                                    return <div key={index} className="projects__item">
 
-                                <div className="project" onClick={this.goTo.bind(this, index)}>
+                                            <div className="project" onClick={this.goTo.bind(this, index)}>
 
-                                    <img className="project__image" src={item.image} />
-                                    <h2 className="project__title">
-                                        {item.title}
-                                    </h2>
-                                    <div className="project__bassline">
-                                        <div className="project__blurb">
-                                            {item.description}
+                                                <img className="project__image" src={item.image} />
+                                                <h2 className="project__title">
+                                                    {item.title}
+                                                </h2>
+                                                <div className="project__bassline">
+                                                    <div className="project__blurb">
+                                                        {item.description}
+                                                    </div>
+                                                </div>
+                                                <span className="project__subtitle">
+                                                    {item.client}
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <span className="project__subtitle">
-                                        {item.client}
-                                    </span>
-                             </div>
-                        </div>
-                })}
-                </div>
+                        
+                                    })}
 
-            </div>
-            })}
-            </div>
-            </div>
-        </CSSTransitionGroup>
+                                </div>
+                            </li>
+                })}
+            </ol>
+        </div>
     </div>   );
     }
 }
