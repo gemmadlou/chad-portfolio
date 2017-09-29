@@ -2,11 +2,17 @@
 @import '../../../../../../node_modules/jgb-slider/src/scss/slider';
 
 .prj-slider {
-    @include slider(#ffffff);
+    background-color: $white;
     display: block;
     z-index: 1;
+    
+    &__blurb {
+        @include guttering();
+        @include vertical-spacing(('base'));
+    }
 
     &__slide {
+        @include guttering();
         display: inline-block;
         width: 100vw;
         vertical-align: top;
@@ -28,7 +34,7 @@
             z-index: 2;
         }
     
-  }
+    }
 
   &__prev-slide::before {
     content: "";
