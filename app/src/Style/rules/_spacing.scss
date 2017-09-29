@@ -54,36 +54,32 @@ $guttering: (
     }
 }
 
-@mixin vertical-spacing($bp: ('base', 'small', 'medium'), $direction: ('top', 'bottom')) {
-    @if (index($bp, 'base')) {
-        @if (index($direction, 'bottom')) {
+@mixin vertical-spacing($bp: 'base', $direction: 'bottom') {
+    @if ($bp == 'base') {
+        @if ($direction == 'bottom') {
             padding-bottom: $component-spacing;
         }
         
-        @if (index($direction, 'top')) {
+        @if ($direction == 'top') {
             padding-top: $component-spacing;
         }
     }
 
-    @if (index($bp, 'small')) {
-        @media only screen and (min-width: $small) {
-            @if (index($direction, 'bottom')) {
-                padding-bottom: $component-spacing-small;
-            }
-            @if (index($direction, 'top')) {
-                padding-top: $component-spacing-small;
-            }
+    @if ($bp == 'small') {
+        @if ($direction == 'bottom') {
+            padding-bottom: $component-spacing-small;
+        }
+        @if ($direction == 'top') {
+            padding-top: $component-spacing-small;
         }
     }
 
-    @if (index($bp, 'medium')) {
-        @media only screen and (min-width: $medium) {
-            @if (index($direction, 'bottom')) {
-                padding-bottom: $component-spacing-medium;
-            }
-            @if (index($direction, 'top')) {
-                padding-top: $component-spacing-medium;
-            }
+    @if ($bp == 'medium') {
+        @if ($direction == 'bottom') {
+            padding-bottom: $component-spacing-medium;
+        }
+        @if ($direction == 'top') {
+            padding-top: $component-spacing-medium;
         }
     }
 }

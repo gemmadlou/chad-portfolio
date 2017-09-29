@@ -2,20 +2,41 @@
 @import '../../../../../../node_modules/jgb-slider/src/scss/slider';
 
 .prj-slider {
+    @include vertical-spacing('base', 'top');
+    @include vertical-spacing('base', 'bottom');
     background-color: $white;
     display: block;
     z-index: 1;
     
     &__blurb {
         @include guttering();
-        @include vertical-spacing(('base'));
+        @include vertical-spacing('base', 'bottom');
+        @include vertical-spacing('base', 'top');
     }
 
     &__slide {
         @include guttering();
+        @include vertical-spacing('base', 'bottom');
         display: inline-block;
         width: 100vw;
         vertical-align: top;
+    }
+
+    @include media('medium') {
+        @include vertical-spacing('medium', 'bottom');
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding-top: 0;
+
+        &__blurb {
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+
+        &__slide {
+            padding-bottom: 0;
+        }
     }
 
     &__prev-slide {
