@@ -3,13 +3,13 @@
 
 .home-slider {
 
-    @media only screen and (max-width: ($medium - 1)) {
+    @media only screen and (max-width: ($large - 1)) {
         &__slider {
             width: 100% !important;
         }
     }
 
-    @include media('medium') {
+    @include media('large') {
         @include slider(#ffffff);
 
         &__slider {
@@ -27,11 +27,10 @@
             background-repeat: no-repeat;
             background-size: 50% 50%;
             border-radius: 100%;
-            bottom: auto;
+            bottom: 0;
             height: 2rem;
-            right: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
+            right: 3rem;
+            transform: translateY(-100%);
             transition: background-color .3s;
             width: 2rem;
 
@@ -47,11 +46,10 @@
             background-repeat: no-repeat;
             background-size: 50% 50%;
             border-radius: 100%;
-            bottom: auto;
+            bottom: 0;
             height: 2rem;
-            left: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
+            left: 3rem;
+            transform: translateY(-100%);
             transition: background-color .3s;
             width: 2rem;
 
