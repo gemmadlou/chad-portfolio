@@ -25,15 +25,13 @@ class App extends Component {
       <Router history={browserHistory}>
         <ScrollToTop>
           <div className="page">
-
-
-
-            <Navigation></Navigation>
-            <Route exact path="/" component={SplashRoute}/>
-            <Route path="/projects" component={ProjectsRoute}/>
-            <Route path="/about" component={AboutPage}/>
-            <Route path="/contact" component={ContactPage}/>
-            <Route path="/project/:id" component={Project}/>
+            
+              <Navigation></Navigation>
+              <Route exact path="/" component={SplashRoute}/>
+              <Route path="/projects" component={ProjectsRoute}/>
+              <Route path="/about" component={AboutPage}/>
+              <Route path="/contact" component={ContactPage}/>
+              <Route path="/project/:id" component={Project}/>
 
           </div>
         </ScrollToTop>

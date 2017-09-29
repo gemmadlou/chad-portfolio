@@ -44,3 +44,8 @@ $font-space-large: $baseline * 6;
         line-height: line-height($body-font-medium);
     }
 }
+
+@mixin title {
+    font-size: $font-size-small;
+    line-height: line-height($font-size-small);
+}
