@@ -6,7 +6,8 @@
   "version": "0.0.1",
   "repository": "",
   "scripts": {
-    "dev": "./node_modules/brunch/bin/brunch watch --server",
+    "watch": "./node_modules/brunch/bin/brunch watch --server",
+    "dev": "./node_modules/brunch/bin/brunch build",
     "build": "./node_modules/brunch/bin/brunch build --production"
   },
   "dependencies": {},
