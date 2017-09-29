@@ -2,14 +2,42 @@
 @import '../../../../../../node_modules/jgb-slider/src/scss/slider';
 
 .prj-slider {
-    @include slider(#ffffff);
+    @include vertical-spacing('base', 'top');
+    @include vertical-spacing('base', 'bottom');
+    background-color: $white;
     display: block;
     z-index: 1;
+    
+    &__blurb {
+        @include guttering();
+        @include vertical-spacing('base', 'bottom');
+        @include vertical-spacing('base', 'top');
+    }
 
     &__slide {
+        @include guttering();
+        @include vertical-spacing('base', 'bottom');
         display: inline-block;
         width: 100vw;
         vertical-align: top;
+    }
+
+    @include media('medium') {
+        @include vertical-spacing('medium', 'bottom');
+        align-items: flex-end;
+        display: flex;
+        padding-top: 0;
+
+        &__blurb {
+            flex-basis: (100% / 4);
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+
+        &__slide {
+            flex-basis: (100% / 4 * 3);
+            padding-bottom: 0;
+        }
     }
 
     &__prev-slide {
@@ -28,7 +56,7 @@
             z-index: 2;
         }
     
-  }
+    }
 
   &__prev-slide::before {
     content: "";

@@ -53,3 +53,33 @@ $guttering: (
         padding-top: $component-spacing-medium;
     }
 }
+
+@mixin vertical-spacing($bp: 'base', $direction: 'bottom') {
+    @if ($bp == 'base') {
+        @if ($direction == 'bottom') {
+            padding-bottom: $component-spacing;
+        }
+        
+        @if ($direction == 'top') {
+            padding-top: $component-spacing;
+        }
+    }
+
+    @if ($bp == 'small') {
+        @if ($direction == 'bottom') {
+            padding-bottom: $component-spacing-small;
+        }
+        @if ($direction == 'top') {
+            padding-top: $component-spacing-small;
+        }
+    }
+
+    @if ($bp == 'medium') {
+        @if ($direction == 'bottom') {
+            padding-bottom: $component-spacing-medium;
+        }
+        @if ($direction == 'top') {
+            padding-top: $component-spacing-medium;
+        }
+    }
+}
