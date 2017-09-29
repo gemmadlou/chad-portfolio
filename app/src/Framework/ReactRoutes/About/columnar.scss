@@ -2,8 +2,7 @@
 
 .columnar {
     &__title {
-        font-size: $font-size-small;
-        line-height: line-height($font-size-small);
+        @include title;
         margin-bottom: $baseline;
 
         @include media('medium') {
@@ -18,10 +17,6 @@
         @include media('medium') {
             margin-bottom: $baseline * 2;
         }
-    }
-
-    @include media('medium') {
-
     }
 
     @include media('large') {
