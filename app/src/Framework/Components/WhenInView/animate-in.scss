@@ -1,0 +1,10 @@
+.animate {
+    &__subtle {
+        transform: translateY(3.5rem);
+        transition: transform .65s ease-in-out .1s;
+    
+        &.in {
+            transform: none;
+        }
+    }
+}
