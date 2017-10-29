@@ -3,6 +3,7 @@ import Hero from '../../Components/Hero/hero.js';
 import Logo from '../../Components/Logo/logo.js';
 import ImageGallery from '../../Components/Image-Gallery/imagegallery.js';
 import Slider from 'jgb-slider';
+import WhenInView from '../../Components/WhenInView/WhenInView.js';
 
 class Project extends Component {
     
@@ -50,112 +51,48 @@ class Project extends Component {
   
           <div className="prj-summary">
             <div className="prj-summary__lead">
-              <span className="prj-summary__lead-text">
-                  The brief was simple. Create a brand that meant something to young people.
-              </span>
+              
+                <span className="prj-summary__lead-text"><WhenInView>
+                    The brief was simple. Create a brand that meant something to young people.
+                </WhenInView></span>
+              
             </div>
             <ul className="prj-summary__meta">
-              <li className="prj-summary__meta-item">
-                <h2 className="prj-summary__meta-title">Awards & Titles</h2>
-                <p className="prj-summary__meta-text">ABC, EFG, LMNOP</p>
-              </li>
-  
-              <li className="prj-summary__meta-item">
-                <h2 className="prj-summary__meta-title">Shoutouts</h2>
-                <p className="prj-summary__meta-text">Tom, John and Luke</p>
-              </li>
-  
-              <li className="prj-summary__meta-item">
-                <h2 className="prj-summary__meta-title">Visit Client</h2>
-                <p className="prj-summary__meta-text">www.abc.com</p>
-              </li>
+              <WhenInView>
+                <li className="prj-summary__meta-item">
+                  <h2 className="prj-summary__meta-title">Awards & Titles</h2>
+                  <p className="prj-summary__meta-text">ABC, EFG, LMNOP</p>
+                </li>
+    
+                <li className="prj-summary__meta-item">
+                  <h2 className="prj-summary__meta-title">Shoutouts</h2>
+                  <p className="prj-summary__meta-text">Tom, John and Luke</p>
+                </li>
+    
+                <li className="prj-summary__meta-item">
+                  <h2 className="prj-summary__meta-title">Visit Client</h2>
+                  <p className="prj-summary__meta-text">www.abc.com</p>
+                </li>
+              </WhenInView>
             </ul>
           </div>
   
           <div className="prj-minimal-info">
             <div className="prj-minimal-info__text">
-              <div className="prj-minimal-info__text-title">
-                  Photography
-              </div>
-              <div className="prj-minimal-info__text-content">
-                  Photos were taken over 3 nights in Treblinka to capture the essence of the Nero team.
-              </div>
+              <WhenInView>
+                <div className="prj-minimal-info__text-title">
+                    Photography
+                </div>
+                <div className="prj-minimal-info__text-content">
+                    Photos were taken over 3 nights in Treblinka to capture the essence of the Nero team.
+                </div>
+              </WhenInView>
             </div>
             <div className="prj-minimal-info__main-image-wrapper">
               <img className="prj-minimal-info__image" src="https://unsplash.it/1000/1000?image=903" />
             </div>
             <div className="prj-minimal-info__small-image-wrapper">
               <img className="prj-minimal-info__image" src="https://unsplash.it/1000/1000?image=901" />
-            </div>
-          </div>
-  
-          <div className="prj-typography" style={{display: 'none'}}>
-            <div className="prj-typography__item">
-              <h3 className="prj-typography__item-header">
-                Heading
-              </h3>
-              <span className="prj-typography__item-sub-header">
-                Roboto
-              </span>
-              <div className="prj-typography__item-example">
-                Image goes here
-              </div>
-            </div>
-            <div className="prj-typography__item">
-              <h3 className="prj-typography__item-header">
-                Heading
-              </h3>
-              <span className="prj-typography__item-sub-header">
-                Roboto
-              </span>
-              <div className="prj-typography__item-example">
-                Image goes here
-              </div>
-            </div>
-            <div className="prj-typography__item">
-              <h3 className="prj-typography__item-header">
-                Heading
-              </h3>
-              <span className="prj-typography__item-sub-header">
-                Roboto
-              </span>
-              <div className="prj-typography__item-example">
-                Image goes here
-              </div>
-            </div>
-          </div>
-  
-          <div className="palette-section" style={{display: 'none'}}>
-            <div className="palette-section__blurb">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-            </div>
-            <div className="palette-section__color-board">
-              <ul className="color-board">
-                <li className="color-board__item">
-                  <span className="color-board__item-name">Super green</span>
-                  <span className="color-board__item-color">#123131</span>
-                </li>
-                <li className="color-board__item">
-                  <span className="color-board__item-name">Super green</span>
-                  <span className="color-board__item-color">#123131</span>
-                </li>
-                <li className="color-board__item">
-                  <span className="color-board__item-name">Super green</span>
-                  <span className="color-board__item-color">#123131</span>
-                </li>
-                <li className="color-board__item">
-                  <span className="color-board__item-name">Super green</span>
-                  <span className="color-board__item-color">#123131</span>
-                </li>
-                <li className="color-board__item">
-                  <span className="color-board__item-name">Super green</span>
-                  <span className="color-board__item-color">#123131</span>
-                </li>
-                <li className="color-board__item">
-                  <span className="color-board__item-name">Super green</span>
-                  <span className="color-board__item-color">#123131</span>
-                </li>
-              </ul>
             </div>
           </div>
           
@@ -174,7 +111,9 @@ class Project extends Component {
   
           <div className="prj-minimal-info">
             <div className="prj-minimal-info__text">
-              Reconciling their brand with their culture and physical space proved a unique challenge
+              <WhenInView>
+                Reconciling their brand with their culture and physical space proved a unique challenge
+              </WhenInView>
             </div>
             <div className="prj-minimal-info__main-image-wrapper">
               <img className="prj-minimal-info__image" src="https://unsplash.it/1000/1000?image=946" />
@@ -188,7 +127,9 @@ class Project extends Component {
           
           <div className="prj-slider">
             <div className="prj-slider__blurb">
+              <WhenInView>
               {this.state.slider.text}
+              </WhenInView>
             </div>
             <div className="prj-slider__slide">
               <div className="slider">
