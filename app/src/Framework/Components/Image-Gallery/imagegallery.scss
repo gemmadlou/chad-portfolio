@@ -38,7 +38,9 @@
     }
 
     @include media('large') {
-        margin-left: -3rem;
-        margin-right: -3rem;
+        &__inner {
+            margin-left: -3rem;
+            margin-right: -3rem;
+        }
     }
 }
