@@ -3,8 +3,7 @@ import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { Link } from 'react-router-dom';
 import Logo from '../../Components/Logo/logo.js';
 import Slider from 'jgb-slider';
-
-
+import {createClient} from 'contentful';
 
 class ProjectsRoute extends Component {
     constructor(props) {
@@ -97,6 +96,20 @@ class ProjectsRoute extends Component {
     }
 
     componentDidMount() {
+        const client = createClient({
+            space: process.env.CONTENTFUL_KEY,
+            accessToken: process.env.CONTENTFUL_TOKEN
+        });
+
+        client.getEntries({
+            content_type: 'landing-page',
+            order: '-sys.createdAt'
+        })
+        .then((response) => {
+            console.log(response);
+        })
+        .catch(console.error)
+
         Slider({
             'selector': '.home-slider'
         });
