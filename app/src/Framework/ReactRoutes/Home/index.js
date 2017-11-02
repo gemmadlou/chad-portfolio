@@ -3,113 +3,119 @@ import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { Link } from 'react-router-dom';
 import Logo from '../../Components/Logo/logo.js';
 import Slider from 'jgb-slider';
-import {createClient} from 'contentful';
+import ProjectService from '../../Services/ProjectService.js';
+
 
 class ProjectsRoute extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            work: [
-              [
-                {
-                    title: 'First Project',
-                    description: 'The best food places in Barcelona were in Borne',
-                    client: 'Kapacucca',
-                    image: 'https://unsplash.it/1000/1000?image=889'
-                },
-                {
-                    title: 'The End of Year Convention',
-                    description: 'A little mini description describing the project',
-                    client: 'Client name',
-                    image: 'https://unsplash.it/1000/1000?image=891'
-                },
-                {
-                    title: 'Work Item',
-                    description: 'A little mini description describing the project',
-                    client: 'Client name',
-                    image: 'https://unsplash.it/1000/1000?image=892'
-                },
 
-              ],
-              [
-                 {
-                    title: 'The End of Year Convention',
-                    description: 'A little mini description describing the project',
-                    client: 'Client name',
-                    image: 'http://unsplash.it/1000/1000'
-                },
-                {
-                    title: 'First Project',
-                    description: 'The best food places in Barcelona were in Borne',
-                    client: 'Kapacucca',
-                    image: 'http://placehold.it/1000x1000'
-                },
-                 {
-                    title: 'The End of Year Convention',
-                    description: 'A little mini description describing the project',
-                    client: 'Client name',
-                    image: 'http://unsplash.it/1000/1000'
-                },
-              ],
-              [
-                  {
-                    title: 'Work Item',
-                    description: 'A little mini description describing the project',
-                    client: 'Client name',
-                    image: 'http://placehold.it/1000x1000'
-                },
-                {
-                    title: 'The End of Year Convention',
-                    description: 'A little mini description describing the project',
-                    client: 'Client name',
-                    image: 'http://unsplash.it/1000/1000'
-                },
-                {
-                    title: 'Work Item',
-                    description: 'A little mini description describing the project',
-                    client: 'Client name',
-                    image: 'http://placehold.it/1000x1000'
-                },
-              ],
-              [
-                 {
-                    title: 'The End of Year Convention',
-                    description: 'A little mini description describing the project',
-                    client: 'Client name',
-                    image: 'http://unsplash.it/1000/1000'
-                },
-                {
-                    title: 'First Project',
-                    description: 'The best food places in Barcelona were in Borne',
-                    client: 'Kapacucca',
-                    image: 'http://placehold.it/1000x1000'
-                },
-                 {
-                    title: 'The End of Year Convention',
-                    description: 'A little mini description describing the project',
-                    client: 'Client name',
-                    image: 'http://unsplash.it/1000/1000'
-                }
-              ]
-            ]
-        }
+        this.repository = new ProjectService;
+        this.state = {}
+        this.state.work = [];
+        this.repository.all()
+            .then((res) => {
+                let work = res.items.reduce((current, next) => {
+                    console.log(current)
+                    current[0].push({
+                        title: next.fields.title,
+                        description: next.fields.shortBlurb,
+                        client: next.fields.client,
+                        image: res.includes.Asset.find((asset) => {
+                            return next.fields.featuredImage.sys.id === asset.sys.id
+                        }).fields.file.url
+                    });
+                    return current;
+                }, [[]]);
+                console.log(work);
+                this.setState({work: work})
+            });
+        // this.state.work = [
+        //     [
+        //     {
+        //         title: 'First Project',
+        //         description: 'The best food places in Barcelona were in Borne',
+        //         client: 'Kapacucca',
+        //         image: 'https://unsplash.it/1000/1000?image=889'
+        //     },
+        //     {
+        //         title: 'The End of Year Convention',
+        //         description: 'A little mini description describing the project',
+        //         client: 'Client name',
+        //         image: 'https://unsplash.it/1000/1000?image=891'
+        //     },
+        //     {
+        //         title: 'Work Item',
+        //         description: 'A little mini description describing the project',
+        //         client: 'Client name',
+        //         image: 'https://unsplash.it/1000/1000?image=892'
+        //     },
+
+        //     ],
+        //     [
+        //         {
+        //         title: 'The End of Year Convention',
+        //         description: 'A little mini description describing the project',
+        //         client: 'Client name',
+        //         image: 'http://unsplash.it/1000/1000'
+        //     },
+        //     {
+        //         title: 'First Project',
+        //         description: 'The best food places in Barcelona were in Borne',
+        //         client: 'Kapacucca',
+        //         image: 'http://placehold.it/1000x1000'
+        //     },
+        //         {
+        //         title: 'The End of Year Convention',
+        //         description: 'A little mini description describing the project',
+        //         client: 'Client name',
+        //         image: 'http://unsplash.it/1000/1000'
+        //     },
+        //     ],
+        //     [
+        //         {
+        //         title: 'Work Item',
+        //         description: 'A little mini description describing the project',
+        //         client: 'Client name',
+        //         image: 'http://placehold.it/1000x1000'
+        //     },
+        //     {
+        //         title: 'The End of Year Convention',
+        //         description: 'A little mini description describing the project',
+        //         client: 'Client name',
+        //         image: 'http://unsplash.it/1000/1000'
+        //     },
+        //     {
+        //         title: 'Work Item',
+        //         description: 'A little mini description describing the project',
+        //         client: 'Client name',
+        //         image: 'http://placehold.it/1000x1000'
+        //     },
+        //     ],
+        //     [
+        //         {
+        //         title: 'The End of Year Convention',
+        //         description: 'A little mini description describing the project',
+        //         client: 'Client name',
+        //         image: 'http://unsplash.it/1000/1000'
+        //     },
+        //     {
+        //         title: 'First Project',
+        //         description: 'The best food places in Barcelona were in Borne',
+        //         client: 'Kapacucca',
+        //         image: 'http://placehold.it/1000x1000'
+        //     },
+        //         {
+        //         title: 'The End of Year Convention',
+        //         description: 'A little mini description describing the project',
+        //         client: 'Client name',
+        //         image: 'http://unsplash.it/1000/1000'
+        //     }
+        //     ]
+        // ];
     }
 
     componentDidMount() {
-        const client = createClient({
-            space: process.env.CONTENTFUL_KEY,
-            accessToken: process.env.CONTENTFUL_TOKEN
-        });
-
-        client.getEntries({
-            content_type: 'landing-page',
-            order: '-sys.createdAt'
-        })
-        .then((response) => {
-            console.log(response);
-        })
-        .catch(console.error)
-
         Slider({
             'selector': '.home-slider'
         });

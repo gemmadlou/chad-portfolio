@@ -6,15 +6,16 @@
   "version": "0.0.1",
   "repository": "",
   "scripts": {
-    "watch": "./node_modules/brunch/bin/brunch watch --server",
+    "watch": " ./node_modules/brunch/bin/brunch watch --server",
     "dev": "./node_modules/brunch/bin/brunch build",
-    "build": "./node_modules/brunch/bin/brunch build --production"
+    "build": "CONTENTFUL_KEY=1 ./node_modules/brunch/bin/brunch build --production"
   },
   "pre-commit": [
     "build"
   ],
   "dependencies": {
     "contentful": "^5.0.2",
+    "dotenv": "^4.0.0",
     "react-waypoint": "^7.3.1"
   },
   "devDependencies": {
