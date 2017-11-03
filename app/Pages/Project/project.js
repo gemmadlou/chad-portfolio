@@ -15,7 +15,8 @@ class Project extends Component {
         this.state = {
           title: '',
           introduction: '',
-          imageURL: ''
+          imageURL: '',
+          meta: []
         }
         this.state.slider = {
           text: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur',
@@ -51,7 +52,16 @@ class Project extends Component {
           introduction: res.item.fields.introductionStatement,
           image: res.includes.Asset.find((asset) => {
               return res.item.fields.featuredImage.sys.id === asset.sys.id
-          }).fields.file.url
+          }).fields.file.url,
+          meta: res.item.fields.projectMeta ?
+            res.item.fields.projectMeta.map(meta => {
+              return res.includes.Entry.find(include => include.sys.id === meta.sys.id)
+            }).map(meta => {
+              return {
+                title: meta.fields.title,
+                blurb: meta.fields.blurb
+              }
+            }) : []
         })
       });
     }
@@ -65,33 +75,37 @@ class Project extends Component {
             image={this.state.image}
             title={this.state.title}></Hero>
   
-          <div className="prj-summary">
-            <div className="prj-summary__lead">
-              
-                <span className="prj-summary__lead-text"><WhenInView>
-                    {this.state.introduction}
-                </WhenInView></span>
-              
+          {(() => {
+            if (!this.state.introduction || this.state.meta.length === 0) {
+              return;
+            }
+            return (
+            <div className="prj-summary">
+              <div className="prj-summary__lead">
+                
+                  <span className="prj-summary__lead-text">
+                    <WhenInView>
+                      {this.state.introduction}
+                    </WhenInView>
+                  </span>
+                
+              </div>
+              <ul className="prj-summary__meta">
+                <WhenInView>
+                  {this.state.meta.map((meta, index) => {
+                    return (
+                      <li key={index} className="prj-summary__meta-item">
+                        <h2 className="prj-summary__meta-title">{meta.title}</h2>
+                        <p className="prj-summary__meta-text">{meta.blurb}</p>
+                      </li>
+                    );
+                  })}
+                </WhenInView>
+              </ul>
             </div>
-            <ul className="prj-summary__meta">
-              <WhenInView>
-                <li className="prj-summary__meta-item">
-                  <h2 className="prj-summary__meta-title">Awards & Titles</h2>
-                  <p className="prj-summary__meta-text">ABC, EFG, LMNOP</p>
-                </li>
-    
-                <li className="prj-summary__meta-item">
-                  <h2 className="prj-summary__meta-title">Shoutouts</h2>
-                  <p className="prj-summary__meta-text">Tom, John and Luke</p>
-                </li>
-    
-                <li className="prj-summary__meta-item">
-                  <h2 className="prj-summary__meta-title">Visit Client</h2>
-                  <p className="prj-summary__meta-text">www.abc.com</p>
-                </li>
-              </WhenInView>
-            </ul>
-          </div>
+            );
+          })()}
+          
   
           <div className="prj-minimal-info">
             <div className="prj-minimal-info__text">
