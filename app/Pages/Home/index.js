@@ -16,103 +16,19 @@ class ProjectsRoute extends Component {
         this.repository.all()
             .then((res) => {
                 let work = res.items.reduce((current, next) => {
-                    console.log(current)
                     current[0].push({
                         title: next.fields.title,
                         description: next.fields.shortBlurb,
                         client: next.fields.client,
                         image: res.includes.Asset.find((asset) => {
                             return next.fields.featuredImage.sys.id === asset.sys.id
-                        }).fields.file.url
+                        }).fields.file.url,
+                        slug: next.fields.slug
                     });
                     return current;
                 }, [[]]);
-                console.log(work);
                 this.setState({work: work})
             });
-        // this.state.work = [
-        //     [
-        //     {
-        //         title: 'First Project',
-        //         description: 'The best food places in Barcelona were in Borne',
-        //         client: 'Kapacucca',
-        //         image: 'https://unsplash.it/1000/1000?image=889'
-        //     },
-        //     {
-        //         title: 'The End of Year Convention',
-        //         description: 'A little mini description describing the project',
-        //         client: 'Client name',
-        //         image: 'https://unsplash.it/1000/1000?image=891'
-        //     },
-        //     {
-        //         title: 'Work Item',
-        //         description: 'A little mini description describing the project',
-        //         client: 'Client name',
-        //         image: 'https://unsplash.it/1000/1000?image=892'
-        //     },
-
-        //     ],
-        //     [
-        //         {
-        //         title: 'The End of Year Convention',
-        //         description: 'A little mini description describing the project',
-        //         client: 'Client name',
-        //         image: 'http://unsplash.it/1000/1000'
-        //     },
-        //     {
-        //         title: 'First Project',
-        //         description: 'The best food places in Barcelona were in Borne',
-        //         client: 'Kapacucca',
-        //         image: 'http://placehold.it/1000x1000'
-        //     },
-        //         {
-        //         title: 'The End of Year Convention',
-        //         description: 'A little mini description describing the project',
-        //         client: 'Client name',
-        //         image: 'http://unsplash.it/1000/1000'
-        //     },
-        //     ],
-        //     [
-        //         {
-        //         title: 'Work Item',
-        //         description: 'A little mini description describing the project',
-        //         client: 'Client name',
-        //         image: 'http://placehold.it/1000x1000'
-        //     },
-        //     {
-        //         title: 'The End of Year Convention',
-        //         description: 'A little mini description describing the project',
-        //         client: 'Client name',
-        //         image: 'http://unsplash.it/1000/1000'
-        //     },
-        //     {
-        //         title: 'Work Item',
-        //         description: 'A little mini description describing the project',
-        //         client: 'Client name',
-        //         image: 'http://placehold.it/1000x1000'
-        //     },
-        //     ],
-        //     [
-        //         {
-        //         title: 'The End of Year Convention',
-        //         description: 'A little mini description describing the project',
-        //         client: 'Client name',
-        //         image: 'http://unsplash.it/1000/1000'
-        //     },
-        //     {
-        //         title: 'First Project',
-        //         description: 'The best food places in Barcelona were in Borne',
-        //         client: 'Kapacucca',
-        //         image: 'http://placehold.it/1000x1000'
-        //     },
-        //         {
-        //         title: 'The End of Year Convention',
-        //         description: 'A little mini description describing the project',
-        //         client: 'Client name',
-        //         image: 'http://unsplash.it/1000/1000'
-        //     }
-        //     ]
-        // ];
     }
 
     componentDidMount() {
@@ -139,9 +55,7 @@ class ProjectsRoute extends Component {
                                     {slide.map((item, index) => {
 
                                     return <div key={index} className="projects__item">
-
-                                            <div className="project" onClick={this.goTo.bind(this, index)}>
-
+                                            <div className="project" onClick={this.goTo.bind(this, item.slug)}>
                                                 <img className="project__image" src={item.image} />
                                                 <h2 className="project__title">
                                                     {item.title}
@@ -156,9 +70,7 @@ class ProjectsRoute extends Component {
                                                 </span>
                                             </div>
                                         </div>
-                        
                                     })}
-
                                 </div>
                             </li>
                 })}

@@ -4,12 +4,19 @@ import Logo from '../../Components/Logo/logo.js';
 import ImageGallery from '../../Components/Image-Gallery/imagegallery.js';
 import Slider from 'jgb-slider';
 import WhenInView from '../../Components/WhenInView/WhenInView.js';
+import ProjectService from '../../Services/ProjectService.js';
 
 class Project extends Component {
     
     constructor(props) {
         super(props);
-        this.state = {}
+        this.repository = new ProjectService;
+        console.log(this.props);
+        this.state = {
+          title: '',
+          introduction: '',
+          imageURL: ''
+        }
         this.state.slider = {
           text: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur',
           images: [
@@ -34,10 +41,19 @@ class Project extends Component {
     
     componentDidMount() {
       new Slider({ selector: '.slider' });
-    }
-    
-    shouldComponentUpdate() {
-      return false;
+
+
+      this.repository.getBySlug(this.props.match.params.id)
+      .then(res => {
+        console.log(res);
+        this.setState({ 
+          title: res.item.fields.title,
+          introduction: res.item.fields.introductionStatement,
+          image: res.includes.Asset.find((asset) => {
+              return res.item.fields.featuredImage.sys.id === asset.sys.id
+          }).fields.file.url
+        })
+      });
     }
   
     render() {
@@ -46,14 +62,14 @@ class Project extends Component {
           <Logo></Logo>
 
           <Hero 
-            image="https://unsplash.it/1000/1000?image=893"
-            title="Working with Nero"></Hero>
+            image={this.state.image}
+            title={this.state.title}></Hero>
   
           <div className="prj-summary">
             <div className="prj-summary__lead">
               
                 <span className="prj-summary__lead-text"><WhenInView>
-                    The brief was simple. Create a brand that meant something to young people.
+                    {this.state.introduction}
                 </WhenInView></span>
               
             </div>

@@ -11,7 +11,7 @@ import {
 import ScrollToTop from './Components/ScrollToTop';
 import SplashRoute from './Pages/Splash';
 import ProjectsRoute from './Pages/Home';
-import Project from './Pages/Projects/project.js';
+import Project from './Pages/Project/project.js';
 import AboutPage from './Pages/About';
 import ContactPage from './Pages/Contact';
 import Navigation from './Components/Navigation';
