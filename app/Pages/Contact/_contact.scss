@@ -1,0 +1,60 @@
+@import "../../Style/rules/index";
+
+.contact {
+    background-color: $white;
+    min-height: 100%;
+
+    &__image {
+        height: auto;
+        width: 100%;
+    }
+
+    &__content-title {
+        @include title;
+        @include vertical-spacing('base', 'bottom');
+    }
+
+    &__content {
+        @include guttering();
+        @extend %component-vertical-spacing;
+        box-sizing: border-box;
+    }
+
+    @include media('medium') {
+        display: flex;
+        height: 100%;
+        position: relative;
+        
+        &__image-holder {
+            flex-basis: (100% / 2);
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        &__image {
+            height: 100%;
+            left: 0;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        &__content {
+            flex-basis: (100% / 2);
+            height: 100%;
+            overflow: auto;
+        }
+    }
+
+    @include media('x-large') {
+        &__image-holder {
+            flex-basis: (100% / 3 * 2);
+        }
+
+        &__content {
+            flex-basis: (100% / 3);
+        }
+    }
+}

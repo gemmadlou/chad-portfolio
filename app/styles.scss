@@ -1,30 +1,23 @@
-@import './src/Style/global/base';
-@import './src/Style/rules/index';
-//@import './src/Framework/ReactRoutes/Home/scss/prj-slider';
+@import "../node_modules/jgb-slider/src/scss/slider";
 
-.example-enter {
-  opacity: 0.01;
-  transition: opacity .5s ease-in;
+@import 'Style/global/base';
+@import 'Style/rules/index';
+@import 'Style/global/general';
 
-  &.example-enter-active {
-    opacity: 1;
-  }
-}
+@import 'Style/components/page';
 
-.example-leave {
-  opacity: 1;
-  transition: opacity .5s ease-in;
+//Pages
+@import "Pages/Home/scss/index";
+@import "Pages/Contact/contact";
+@import "Pages/About/columnar";
+@import "Pages/About/about";
+@import "Pages/Splash/index";
 
-  &.example-leave-active {
-    opacity: 0.01;
-  }
-}
-
-.example-appear {
-  opacity: 0.01;
-  transition: opacity .5s ease-in;
-}
-
-.example-appear.example-appear-active {
-  opacity: 1;
-}
+//Components
+@import "Components/Hamburger/Hamburger";
+@import "Components/Hero/hero";
+@import "Components/Image-Gallery/imagegallery";
+@import "Components/List/list";
+@import "Components/Logo/logo";
+@import "Components/Menu/menu";
+@import "Components/Navigation/navigation";

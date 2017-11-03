@@ -1,0 +1,15 @@
+.list {
+
+    &__item {
+        @include body-font;
+        margin-bottom: $baseline * 2;
+    }
+
+    &__item-title {
+        font-weight: bold;
+    }
+
+    &__item-value {
+        white-space: pre-line;
+    }
+}
