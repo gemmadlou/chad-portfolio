@@ -1,26 +1,21 @@
 import React from 'react';
 
-export default function () {
+export default function ({ images = []}) {
+    if (images.length === 0) {
+      return null;
+    }
+
     return <div className="image-gallery">
       <div className="image-gallery__inner">
-        <div className="image-gallery__item">
-          <img className="image-gallery__image" src="http://unsplash.it/800/800?image=888" />
-        </div>
-        <div className="image-gallery__item">
-          <img className="image-gallery__image" src="http://unsplash.it/800/800?image=888" />
-        </div>
-        <div className="image-gallery__item">
-          <img className="image-gallery__image" src="http://unsplash.it/800/800?image=888" />
-        </div>
-        <div className="image-gallery__item">
-          <img className="image-gallery__image" src="http://unsplash.it/800/800?image=888" />
-        </div>
-        <div className="image-gallery__item">
-          <img className="image-gallery__image" src="http://unsplash.it/800/800?image=888" />
-        </div>
-        <div className="image-gallery__item">
-          <img className="image-gallery__image" src="http://unsplash.it/800/800?image=888" />
-        </div>
+        {images.map((image, index) => {
+          return (
+            <div key={index} className="image-gallery__item">
+              <div className="aspect-ratio">
+                <img className="image-gallery__image" src={image} />
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
 }

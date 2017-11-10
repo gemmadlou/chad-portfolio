@@ -4,6 +4,7 @@ import Logo from '../../Components/Logo/logo.js';
 import ImageGallery from '../../Components/Image-Gallery/imagegallery.js';
 import Slider from 'jgb-slider';
 import WhenInView from '../../Components/WhenInView/WhenInView.js';
+import MultiBoard from '../../Components/MultiBoard/multi-board.js';
 import ProjectService from '../../Services/ProjectService.js';
 
 class Project extends Component {
@@ -11,12 +12,15 @@ class Project extends Component {
     constructor(props) {
         super(props);
         this.repository = new ProjectService;
-        console.log(this.props);
         this.state = {
           title: '',
           introduction: '',
           imageURL: '',
-          meta: []
+          meta: [],
+          gallery: [],
+          heroImage: '',
+          heroText: '',
+          multiBoard: []
         }
         this.state.slider = {
           text: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur',
@@ -61,7 +65,25 @@ class Project extends Component {
                 title: meta.fields.title,
                 blurb: meta.fields.blurb
               }
-            }) : []
+            }) : [],
+          gallery: res.item.fields.gallery ? 
+            res.item.fields.gallery.map(image => {
+              return image.fields.file.url;
+            }) : [],
+          heroImage: res.includes.Asset.find((asset) => {
+              return res.item.fields.heroBlockImage.sys.id === asset.sys.id
+          }).fields.file.url,
+          heroText: res.item.fields.heroBlockText,
+          multiBoard: !res.item.fields.multiBoard
+            ? [] 
+            : res.item.fields.multiBoard.map(board => {
+              return {
+                smallImage: board.fields.smallImage.fields.file.url,
+                largeImage: board.fields.largeImage.fields.file.url,
+                blurb: board.fields.blurb,
+                title: ''
+              }
+            })
         })
       });
     }
@@ -69,26 +91,26 @@ class Project extends Component {
     render() {
       return (
         <div>
+
           <Logo></Logo>
 
           <Hero 
             image={this.state.image}
-            title={this.state.title}></Hero>
-  
+            title={this.state.title}>
+          </Hero>
+
           {(() => {
             if (!this.state.introduction || this.state.meta.length === 0) {
-              return;
+              return null;
             }
             return (
             <div className="prj-summary">
               <div className="prj-summary__lead">
-                
                   <span className="prj-summary__lead-text">
                     <WhenInView>
                       {this.state.introduction}
                     </WhenInView>
                   </span>
-                
               </div>
               <ul className="prj-summary__meta">
                 <WhenInView>
@@ -105,27 +127,21 @@ class Project extends Component {
             </div>
             );
           })()}
-          
-  
-          <div className="prj-minimal-info">
-            <div className="prj-minimal-info__text">
-              <WhenInView>
-                <div className="prj-minimal-info__text-title">
-                    Photography
-                </div>
-                <div className="prj-minimal-info__text-content">
-                    Photos were taken over 3 nights in Treblinka to capture the essence of the Nero team.
-                </div>
-              </WhenInView>
-            </div>
-            <div className="prj-minimal-info__main-image-wrapper">
-              <img className="prj-minimal-info__image" src="https://unsplash.it/1000/1000?image=903" />
-            </div>
-            <div className="prj-minimal-info__small-image-wrapper">
-              <img className="prj-minimal-info__image" src="https://unsplash.it/1000/1000?image=901" />
-            </div>
-          </div>
-          
+
+          {(() => {
+            if (this.state.multiBoard.length === 0) {
+              return;
+            }
+            return (
+              <MultiBoard
+                title={this.state.multiBoard[0].title}
+                blurb={this.state.multiBoard[0].blurb}
+                smallImage={this.state.multiBoard[0].smallImage}
+                largeImage={this.state.multiBoard[0].largeImage}></MultiBoard>
+              
+            );
+          })()}
+
           <div className="prj-dual-hero">
             <div className="prj-dual-hero__image-wrapper">
               <img className="prj-dual-hero__image" src="https://unsplash.it/1000/1000?image=907" />
@@ -136,24 +152,26 @@ class Project extends Component {
           </div>
   
           <Hero
-            image="https://unsplash.it/1000/1000?image=96"
-            title="Nero on timeout"></Hero>
+            image={this.state.heroImage}
+            title={this.state.heroText}></Hero>
   
-          <div className="prj-minimal-info">
-            <div className="prj-minimal-info__text">
-              <WhenInView>
-                Reconciling their brand with their culture and physical space proved a unique challenge
-              </WhenInView>
-            </div>
-            <div className="prj-minimal-info__main-image-wrapper">
-              <img className="prj-minimal-info__image" src="https://unsplash.it/1000/1000?image=946" />
-            </div>
-            <div className="prj-minimal-info__small-image-wrapper">
-              <img className="prj-minimal-info__image" src="https://unsplash.it/1000/1000?image=945" />
-            </div>
-          </div>
+            {(() => {
+              if (this.state.multiBoard.length < 2) {
+                return;
+              }
+              return (
+                <MultiBoard
+                  title={this.state.multiBoard[1].title}
+                  blurb={this.state.multiBoard[1].blurb}
+                  smallImage={this.state.multiBoard[1].smallImage}
+                  largeImage={this.state.multiBoard[1].largeImage}></MultiBoard>
+                
+              );
+            })()}
   
-          <ImageGallery></ImageGallery>
+          <ImageGallery 
+            images={this.state.gallery}
+          ></ImageGallery>
           
           <div className="prj-slider">
             <div className="prj-slider__blurb">
@@ -174,7 +192,6 @@ class Project extends Component {
               </div>
             </div>
           </div>
-  
         </div>
       );
     }
