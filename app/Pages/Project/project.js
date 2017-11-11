@@ -20,7 +20,8 @@ class Project extends Component {
           gallery: [],
           heroImage: '',
           heroText: '',
-          multiBoard: []
+          multiBoard: [],
+          duoImage: []
         }
         this.state.slider = {
           text: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur',
@@ -50,7 +51,7 @@ class Project extends Component {
 
       this.repository.getBySlug(this.props.match.params.id)
       .then(res => {
-        console.log(res);
+        console.log(res.item.fields.dualImageModule);
         this.setState({ 
           title: res.item.fields.title,
           introduction: res.item.fields.introductionStatement,
@@ -70,10 +71,12 @@ class Project extends Component {
             res.item.fields.gallery.map(image => {
               return image.fields.file.url;
             }) : [],
-          heroImage: res.includes.Asset.find((asset) => {
-              return res.item.fields.heroBlockImage.sys.id === asset.sys.id
-          }).fields.file.url,
-          heroText: res.item.fields.heroBlockText,
+          heroImage: !res.item.fields.heroBlockImage
+            ? ''
+            : res.includes.Asset.find((asset) => {
+                return res.item.fields.heroBlockImage.sys.id === asset.sys.id
+            }).fields.file.url,
+          heroText: res.item.fields.heroBlockText || '',
           multiBoard: !res.item.fields.multiBoard
             ? [] 
             : res.item.fields.multiBoard.map(board => {
@@ -83,7 +86,12 @@ class Project extends Component {
                 blurb: board.fields.blurb,
                 title: ''
               }
+            }),
+          duoImage: Array.isArray(res.item.fields.dualImageModule) && res.item.fields.dualImageModule.length > 0
+            ? res.item.fields.dualImageModule.map(image => {
+              return image.fields.file.url;
             })
+            : []
         })
       });
     }
@@ -142,14 +150,22 @@ class Project extends Component {
             );
           })()}
 
-          <div className="prj-dual-hero">
-            <div className="prj-dual-hero__image-wrapper">
-              <img className="prj-dual-hero__image" src="https://unsplash.it/1000/1000?image=907" />
-            </div>
-            <div className="prj-dual-hero__image-wrapper">
-              <img className="prj-dual-hero__image" src="https://unsplash.it/1000/1000?image=911" />
-            </div>
-          </div>
+          {(() => {
+            if (this.state.duoImage)  {
+              return;
+            }
+            return (
+              <div className="prj-dual-hero">
+                <div className="prj-dual-hero__image-wrapper">
+                  <img className="prj-dual-hero__image" src={this.state.duoImage[0]} />
+                </div>
+                <div className="prj-dual-hero__image-wrapper">
+                  <img className="prj-dual-hero__image" src={this.state.duoImage[1]} />
+                </div>
+              </div>
+            );
+          })}
+          
   
           <Hero
             image={this.state.heroImage}

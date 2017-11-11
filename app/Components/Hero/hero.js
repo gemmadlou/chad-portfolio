@@ -4,14 +4,15 @@ import WhenInView from '../WhenInView/WhenInView.js';
 
 export default function Hero({image, title}) {
 
-    let _image = image || "http://placehold.it/1000x1000";
-    let _title = title || "";
+    if (!image) {
+        return null;
+    }
     
     return <div className="hero">
-            <img className="hero__image" src={_image} />
+            <img className="hero__image" src={image} />
             <h1 className="hero__title">
                 <WhenInView>
-                {_title}
+                {title}
                 </WhenInView>
             </h1>
         </div>;
