@@ -2,6 +2,18 @@
     height: 100vh;
     position: relative;
 
+    &:after {
+        background-color: black;
+        content: '';
+        height: 100%;
+        left: 0;
+        opacity: .05;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
     &__image {
         height: 100%;
         left: 0;
@@ -9,6 +21,7 @@
         position: absolute;
         top: 0;
         width: 100%;
+        z-index: 0;
     }
 
     &__title {
@@ -18,6 +31,7 @@
         left: $gutter-small;
         position: absolute;
         right: $gutter-small;
+        z-index: 1;
     }
 
     @media only screen and (min-width: $medium) {

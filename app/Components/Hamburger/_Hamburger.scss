@@ -1,5 +1,5 @@
 .hamburger {
-  background-color: white;
+  $transparentBlack: rgba(0, 0, 0, 0.8);
   cursor: pointer;
   display: block;
   height: 3em;
@@ -7,7 +7,7 @@
   width: 3em;
   
   &__bar {
-    background-color: black;
+    background-color: $transparentBlack;
     display: block;
     height: 4px;
     margin-left: -.7em;
@@ -18,7 +18,7 @@
     width: 1.4em;
     
     &::before {
-      background-color: black;
+      background-color: $transparentBlack;
       content: '';
       height: 4px;
       top: 7px;
@@ -28,7 +28,7 @@
     }
     
     &::after {
-      background-color: black;
+      background-color: $transparentBlack;
       content: '';
       height: 4px;
       position: absolute;
