@@ -28,7 +28,7 @@
     "clean-css-brunch": "^2",
     "csswring": "^5.1",
     "deepcopy": "^0.6.3",
-    "jgb-slider": "^0.1.1",
+    "jgb-slider": "^0.2",
     "postcss-brunch": "^2.0",
     "pre-commit": "^1.2.2",
     "react": "^15.4.2",

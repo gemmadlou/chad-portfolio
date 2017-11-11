@@ -21,40 +21,20 @@ class Project extends Component {
           heroImage: '',
           heroText: '',
           multiBoard: [],
-          duoImage: []
-        }
-        this.state.slider = {
-          text: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur',
-          images: [
-            {
-              src: 'http://unsplash.it/1200/500?image=123'
-            },
-            {
-              src: 'http://unsplash.it/1200/500?image=123'
-            },
-            {
-              src: 'http://unsplash.it/1200/500?image=123'
-            },
-            {
-              src: 'http://unsplash.it/1200/500?image=123'
-            },
-            {
-              src: 'http://unsplash.it/1200/500?image=123'
-            }
-          ]
+          duoImage: [],
+          slider: { text: '', slides: []}
         }
     }
     
     componentDidMount() {
-      new Slider({ selector: '.slider' });
 
 
       this.repository.getBySlug(this.props.match.params.id)
       .then(res => {
-        console.log(res.item.fields.dualImageModule);
+        console.log(res.item);
         this.setState({ 
           title: res.item.fields.title,
-          introduction: res.item.fields.introductionStatement,
+          introduction: res.item.fields.introductionStatement || '',
           image: res.includes.Asset.find((asset) => {
               return res.item.fields.featuredImage.sys.id === asset.sys.id
           }).fields.file.url,
@@ -91,8 +71,20 @@ class Project extends Component {
             ? res.item.fields.dualImageModule.map(image => {
               return image.fields.file.url;
             })
-            : []
-        })
+            : [],
+          slider: {
+            slides: res.item.fields.projectSlider && res.item.fields.projectSlider.fields.slides.length > 0
+              ? res.item.fields.projectSlider.fields.slides.map(slide => {
+                return slide.fields.file.url;
+              })
+              : [],
+            text: res.item.fields.projectSlider
+              ? res.item.fields.projectSlider.fields.title
+              : []
+          }
+        });
+
+        let slider = new Slider({ selector: '.slider' });
       });
     }
   
@@ -189,25 +181,31 @@ class Project extends Component {
             images={this.state.gallery}
           ></ImageGallery>
           
-          <div className="prj-slider">
-            <div className="prj-slider__blurb">
-              <WhenInView>
-              {this.state.slider.text}
-              </WhenInView>
-            </div>
-            <div className="prj-slider__slide">
-              <div className="slider">
-                <ol className="slider__slider">
-                
-                  {this.state.slider.images.map((img, key) => {
-                    return  <li key={key} className="slider__slide">
-                        <img src={img.src} />
-                    </li>
-                  })}
-                </ol>
+          {(() => {
+            if (this.state.slider.slides.length === 0) {
+              return null;
+            }
+            return (<div className="prj-slider">
+              <div className="prj-slider__blurb">
+                <WhenInView>
+                {this.state.slider.text}
+                </WhenInView>
+              </div>
+              <div className="prj-slider__slide">
+                <div className="slider">
+                  <ol className="slider__slider">
+                  
+                    {this.state.slider.slides.map((img, key) => {
+                      return  <li key={key} className="slider__slide">
+                          <img src={img} />
+                      </li>
+                    })}
+                  </ol>
+                </div>
               </div>
             </div>
-          </div>
+              );
+          })()}
         </div>
       );
     }
