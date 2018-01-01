@@ -1,9 +1,10 @@
 .hamburger {
   $transparentBlack: rgba(0, 0, 0, 0.8);
+  $this: &;
   cursor: pointer;
   display: block;
   height: 3em;
-  transition: transform .8s ease;
+  transition: transform .8s ease, opacity .8s ease;
   width: 3em;
   
   &__bar {
@@ -37,9 +38,12 @@
       width: 1.4em;
     }
   }
-    
-  &:active,
+  
   &:hover {
+    opacity: .7;
+  }
+    
+  .navigation--active & {
     transform: rotate(180deg);
     
     .hamburger__bar {
@@ -47,11 +51,13 @@
     }
     
     .hamburger__bar::before {
+      background-color: $white;
       top: -.2em;
       transform: rotate(-45deg);
     }
     
     .hamburger__bar::after {
+      background-color: $white;
       top: -.2em;
       transform: rotate(45deg);
     }
