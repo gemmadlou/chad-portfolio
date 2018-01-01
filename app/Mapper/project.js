@@ -1,3 +1,15 @@
+export const mapper 
+    = json => {
+        return heroSection(json, {})
+            .chain(mapped => introduction(json, mapped))
+            .chain(mapped => multiboard(json, mapped))
+            .chain(mapped => duoImages(json, mapped))
+            .chain(mapped => gallery(json, mapped))
+            .chain(mapped => finalWords(json, mapped))
+            .fold(c => new Error(c), c => c);
+
+    }
+
 const Right 
     = x => ({
         chain: f => f(x),
@@ -13,19 +25,6 @@ const Left
         fold: (error, success) => error(x),
         value: x
     });
-
-
-export const mapper 
-    = json => {
-        return heroSection(json, {})
-            .chain(mapped => introduction(json, mapped))
-            .chain(mapped => multiboard(json, mapped))
-            .chain(mapped => duoImages(json, mapped))
-            .chain(mapped => gallery(json, mapped))
-            .chain(mapped => finalWords(json, mapped))
-            .fold(c => new Error(c), c => c);
-
-    }
 
 const hasItems 
     = json => Array.isArray(json.items) && json.items.length === 1

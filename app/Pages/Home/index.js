@@ -5,6 +5,25 @@ import Logo from '../../Components/Logo/logo.js';
 import Slider from 'jgb-slider';
 import ProjectService from '../../Services/ProjectService.js';
 
+/**
+ * Returns an array with arrays of the given size.
+ *
+ * @param myArray {Array} array to split
+ * @param chunk_size {Integer} Size of every group
+ */
+function chunkArray(myArray, chunk_size){
+    let index = 0;
+    let arrayLength = myArray.length;
+    let tempArray = [];
+    let myChunk;
+
+    for (index = 0; index < arrayLength; index += chunk_size) {
+        myChunk = myArray.slice(index, index+chunk_size);
+        tempArray.push(myChunk);
+    }
+
+    return tempArray;
+}
 
 class ProjectsRoute extends Component {
     constructor(props) {
@@ -16,18 +35,18 @@ class ProjectsRoute extends Component {
         this.repository.all()
             .then((res) => {
                 let work = res.items.reduce((current, next) => {
-                    current[0].push({
-                        title: next.fields.title,
-                        description: next.fields.shortBlurb,
-                        client: next.fields.client,
-                        image: res.includes.Asset.find((asset) => {
-                            return next.fields.featuredImage.sys.id === asset.sys.id
-                        }).fields.file.url,
-                        slug: next.fields.slug
+                    current.push({
+                        title: next.fields.heroTitle,
+                        description: next.fields.projectInfo,
+                        client: next.fields.clientName,
+                        image: next.fields.heroImage.fields.file.url,
+                        slug: next.fields.projectSlug
                     });
                     return current;
-                }, [[]]);
-                this.setState({work: work})
+                }, []);
+
+                console.log(work);
+                this.setState({work: chunkArray(work, 3)})
             });
     }
 

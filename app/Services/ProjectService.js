@@ -7,18 +7,19 @@ const client = createClient({
     accessToken: config.CONTENTFUL_TOKEN
 });
 
+const contentType = 'projectPage';
+
 export default class {
     all() {
         return client.getEntries({
-            content_type: 'project',
+            content_type: contentType,
             order: '-sys.createdAt'
         })
-        .catch(handleError);
     }
     
     getBySlug(slug) {
         return client.getEntries({
-            content_type: 'projectPage',
+            content_type: contentType,
             'fields.projectSlug': slug || 0,
             limit: 1
         })
