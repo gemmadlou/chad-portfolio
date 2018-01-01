@@ -6,22 +6,37 @@
   "version": "0.0.1",
   "repository": "",
   "scripts": {
-    "start": "brunch watch --server",
-    "build": "brunch build --production"
+    "watch": " ./node_modules/brunch/bin/brunch watch --server",
+    "dev": "./node_modules/brunch/bin/brunch build",
+    "build": "./node_modules/brunch/bin/brunch build --production"
   },
-  "dependencies": {},
+  "pre-commit": [
+    "build"
+  ],
+  "dependencies": {
+    "contentful": "^5.0.2",
+    "dotenv": "^4.0.0",
+    "react-waypoint": "^7.3.1"
+  },
   "devDependencies": {
-    "auto-reload-brunch": "^2.7.1",
     "autoprefixer": "^6.3",
     "babel-brunch": "^6.1.1",
-    "babel-preset-env": "^1.2.2",
-    "babel-preset-latest": "^6",
+    "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.23.0",
-    "brunch": "^2",
+    "babel-preset-stage-0": "^6.24.1",
+    "brunch": "^2.10.10",
     "clean-css-brunch": "^2",
     "csswring": "^5.1",
+    "deepcopy": "^0.6.3",
+    "jgb-slider": "^0.2",
     "postcss-brunch": "^2.0",
-    "typescript-brunch": "^2.3.0",
+    "pre-commit": "^1.2.2",
+    "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router-dom": "^4.0.0",
+    "react-transition-group": "^1.1.1",
+    "sass-brunch": "^1.9.2",
     "uglify-js-brunch": "^2"
   }
 }

@@ -1,0 +1,28 @@
+@import "../node_modules/jgb-slider/src/scss/slider";
+
+@import 'Style/global/base';
+@import 'Style/rules/index';
+@import 'Style/global/general';
+
+@import 'Style/components/page';
+
+//Pages
+@import "Pages/Home/scss/index";
+@import "Pages/Contact/contact";
+@import "Pages/About/columnar";
+@import "Pages/About/about";
+@import "Pages/Splash/index";
+@import "Pages/Project/prj-image-summary";
+
+//Components
+@import "Components/Hamburger/Hamburger";
+@import "Components/Hero/hero";
+@import "Components/Image-Gallery/imagegallery";
+@import "Components/List/list";
+@import "Components/Logo/logo";
+@import "Components/Menu/menu";
+@import "Components/Navigation/navigation";
+
+//Utils
+@import "Style/utils/aspect-ratio";
+@import "Style/utils/lazy-load";

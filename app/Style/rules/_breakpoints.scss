@@ -1,0 +1,31 @@
+$small: 540px;
+$medium: 768px;
+$large: 1024px;
+$x-large: 1200px;
+$xx-large: 1600px;
+$xxx-large: 2000px;
+
+$max-width: $xx-large;
+
+@mixin media($breakpoint) {
+    
+    $sizes: (
+        'small': $small,
+        'medium': $medium,
+        'large': $large,
+        'x-large': $x-large,
+        'xx-large': $xx-large,
+        'xxx-large': $xxx-large
+    );
+    
+    @if ($breakpoint == "base") {
+        @content;
+    }
+    
+    @if map-has-key($sizes, $breakpoint) {
+        @media only screen and (min-width: map-get($sizes, $breakpoint)) {
+            @content;
+        }
+    }
+    
+}

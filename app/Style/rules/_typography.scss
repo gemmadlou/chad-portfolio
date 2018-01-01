@@ -1,0 +1,51 @@
+@import 'vertical-rhythm';
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function line-height($font-size) {
+    @for $i from 1 to 8 {
+      $baseline-unit: strip-units($baseline);
+      $prev-line-height: ($i - 1) * $baseline-unit;
+      $line-height: $i * $baseline-unit;
+      $font-size-unit: strip-units($font-size);
+
+      @if $font-size-unit > $prev-line-height and $font-size-unit < $line-height {
+        @return $baseline * $i;
+      }
+    }
+    @return $font-size;
+}
+
+$font-size-super: $baseline * 6;
+$font-size-xxxlarge: $baseline * 4.6;
+$font-size-xxlarge: $baseline * 3.4;
+$font-size-xlarge: $baseline * 2.8;
+$font-size-large: $baseline * 2.2;
+$font-size-medium: $baseline * 1.77;
+$font-size-small: $baseline * 1.3;
+$font-size-xsmall: $baseline * 1;
+$font-size-xxsmall: $baseline * .8;
+
+$body-font-base: $font-size-xxsmall;
+$body-font-medium: $font-size-xsmall;
+
+$font-space-small: $baseline * 2;
+$font-space-medium: $baseline * 4;
+$font-space-large: $baseline * 6;
+
+@mixin body-font {
+    font-size: $body-font-base;
+    line-height: line-height($body-font-base);
+
+    @include media('medium') {
+        font-size: $body-font-medium;
+        line-height: line-height($body-font-medium);
+    }
+}
+
+@mixin title {
+    font-size: $font-size-small;
+    line-height: line-height($font-size-small);
+}

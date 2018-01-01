@@ -6,18 +6,18 @@ exports.files = {
       'app.js': /^app/
     }
   },
-  stylesheets: {joinTo: 'app.css'}
-};
-
-exports.plugins = {
-  babel: {presets: ['latest']}
+  stylesheets: {
+    joinTo: 'app.css'
+  }
 };
 
 exports.server = {
   port: 8080,
   stripSlashes: true,
-  hostname: '0.0.0.0'
+  hostname: '0.0.0.0',
 }
+
+exports.notifications = false;
 
 exports.plugins = {
   postcss: {
@@ -27,9 +27,17 @@ exports.plugins = {
     ]
   },
   babel: {
-    presets: ['env', 'react'],
+    presets: [
+      'latest',
+      'stage-0', 
+      'react'
+    ],
     ignore: [
       /^node_modules/
     ]
+  },
+  
+  sass: {
+    mode: 'ruby'
   }
 }

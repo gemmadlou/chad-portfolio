@@ -1,0 +1,21 @@
+.logo {
+  height: 4rem;
+  left: $gutter-base;
+  position: absolute;
+  top: 1.5rem;
+  width: 4rem;
+  z-index: 2;
+
+  svg {
+    fill: $black;
+  }
+
+  path {
+    fill: $white;
+  }
+
+  @media (min-width: $medium) {
+    left: $gutter-small;
+    top: $gutter-small;
+  }
+}
