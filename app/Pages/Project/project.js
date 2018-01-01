@@ -6,6 +6,7 @@ import Slider from 'jgb-slider';
 import WhenInView from '../../Components/WhenInView/WhenInView.js';
 import MultiBoard from '../../Components/MultiBoard/multi-board.js';
 import ProjectService from '../../Services/ProjectService.js';
+import Navigation from '../../Components/Navigation/index.js';
 
 class Project extends Component {
     
@@ -35,7 +36,8 @@ class Project extends Component {
       return (
         <div>
 
-          <Logo></Logo>
+          <Logo />
+          <Navigation />
 
           <Hero 
             image={this.state.hero.image}

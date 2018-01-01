@@ -9,7 +9,8 @@ class Navigation extends Component {
         super(props);
         this.state = {
             active: false,
-            menuClasses: []
+            menuClasses: [],
+            navigationClasses: []
         }
         
         this.toggleActive = this.toggleActive.bind(this);
@@ -26,6 +27,10 @@ class Navigation extends Component {
             'navigation__menu',
             (state.active) ? 'navigation__menu--active' : ''
         ];
+        state.navigationClasses = [
+          'navigation',
+          (state.active) ? 'navigation--active' : ''
+        ];
         this.setState(state);
     }
     
@@ -34,7 +39,7 @@ class Navigation extends Component {
     }
     
     render() {
-        return (<header className="navigation">
+        return (<header className={this.state.navigationClasses.join(' ')}>
                 <div className="navigation__hamburger" onClick={this.toggleActive}>
                   <div className="hamburger">
                     <div className="hamburger__bar"></div>
@@ -42,14 +47,29 @@ class Navigation extends Component {
                 </div>
                 <div className={this.state.menuClasses.join(' ')}>
                   <ul className="menu">
-                    <li className="menu__item">
-                      <span className="menu__link" onClick={this.goTo.bind(this, '/projects')}>Projects</span>
+                    <li className="menu__item" onClick={this.goTo.bind(this, '/projects')}>
+                      <span className="menu__item-title">
+                        Projects
+                      </span>
+                      <span className="menu__item-description">
+                        Some descriptory text lorem ipsum dolor sit amet consectetur et amen.
+                      </span>
                     </li>
-                    <li className="menu__item">
-                      <span className="menu__link" onClick={this.goTo.bind(this, '/about')}>About</span>
+                    <li className="menu__item" onClick={this.goTo.bind(this, '/about')}>
+                      <span className="menu__item-title">
+                        About
+                      </span>
+                      <span className="menu__item-description">
+                        Some descriptory text lorem ipsum dolor sit amet consectetur et amen.
+                      </span>
                     </li>
-                    <li className="menu__item">
-                      <span className="menu__link" onClick={this.goTo.bind(this, '/contact')}>Contact</span>
+                    <li className="menu__item" onClick={this.goTo.bind(this, '/contact')}>
+                      <span className="menu__item-title">
+                        Contact
+                      </span>
+                      <span className="menu__item-description">
+                        Some descriptory text lorem ipsum dolor sit amet consectetur et amen.
+                      </span>
                     </li>
                   </ul>
                 </div>

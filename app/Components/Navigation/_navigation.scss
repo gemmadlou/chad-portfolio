@@ -1,10 +1,17 @@
 .navigation {
+    $this: &;
+    height: 0;
     position: fixed;
     right: 0;
     top: 0;
-    transition: opacity .3s ease-in-out;
+    transition: height 0s linear 2.4s;
     width: 100%;
     z-index: 2;
+    
+    &--active {
+        height: 100%;
+        transition: height 0s;
+    }
 
     &__hamburger {
         position: absolute;
@@ -14,18 +21,19 @@
     }
 
     &__menu {
-        bottom: 0;
+        height: 0;
         left: 0;
         opacity: 0;
         position: absolute;
         right: 0;
         top: 0;
+        transition: height 0s linear 2.4s, opacity .3s ease-in-out 2.4s;
     }
 
     &__menu--active {
-        bottom: 0;
-        height: 100vh;
+        height: 100%;
         opacity: 1;
+        transition: opacity .3s ease-in-out, height 0s;
     }
     
 }
