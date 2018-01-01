@@ -25,5 +25,8 @@ node_modules/
 # Brunch output folder.
 public/*
 
-#Netlify
+# Netlify
 !public/_redirects
+
+# Environment
+.config.js

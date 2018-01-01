@@ -6,7 +6,7 @@
   "version": "0.0.1",
   "repository": "",
   "scripts": {
-    "watch": "./node_modules/brunch/bin/brunch watch --server",
+    "watch": " ./node_modules/brunch/bin/brunch watch --server",
     "dev": "./node_modules/brunch/bin/brunch build",
     "build": "./node_modules/brunch/bin/brunch build --production"
   },
@@ -14,6 +14,8 @@
     "build"
   ],
   "dependencies": {
+    "contentful": "^5.0.2",
+    "dotenv": "^4.0.0",
     "react-waypoint": "^7.3.1"
   },
   "devDependencies": {
@@ -26,7 +28,7 @@
     "clean-css-brunch": "^2",
     "csswring": "^5.1",
     "deepcopy": "^0.6.3",
-    "jgb-slider": "^0.1.1",
+    "jgb-slider": "^0.2",
     "postcss-brunch": "^2.0",
     "pre-commit": "^1.2.2",
     "react": "^15.4.2",

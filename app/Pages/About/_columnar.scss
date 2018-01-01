@@ -1,0 +1,39 @@
+.columnar {
+    &__title {
+        @include title;
+        margin-bottom: $baseline;
+
+        @include media('medium') {
+            margin-bottom: $baseline * 2;
+        }
+    }
+
+    p {
+        @include body-font;
+        margin-bottom: $baseline;
+
+        @include media('medium') {
+            margin-bottom: $baseline * 2;
+        }
+    }
+
+    @include media('large') {
+
+        &__title {
+            width: 100%;
+        }
+
+        &__column {
+            display: inline-block;
+            width: 50%;
+
+            &:nth-child(2n+1) {
+                padding-left: 1rem;
+            }
+
+            &:nth-child(2n) {
+                padding-right: 1rem;
+            }
+        }
+    }
+}
