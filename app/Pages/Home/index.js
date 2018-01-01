@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Logo from '../../Components/Logo/logo.js';
 import Slider from 'jgb-slider';
 import ProjectService from '../../Services/ProjectService.js';
+import Image from '../../Components/Image/Image.js';
+import Navigation from '../../Components/Navigation/index.js';
 
 /**
  * Returns an array with arrays of the given size.
@@ -64,6 +66,7 @@ class ProjectsRoute extends Component {
          return (<div>
 
            <Logo></Logo>
+           <Navigation></Navigation>
 
            <div className="home-slider">
               <ol className="home-slider__slider" style={{width: this.state.work.length * 100 + '%'}}>
@@ -75,15 +78,22 @@ class ProjectsRoute extends Component {
 
                                     return <div key={index} className="projects__item">
                                             <div className="project" onClick={this.goTo.bind(this, item.slug)}>
-                                                <img className="project__image" src={item.image} />
+                                                
+
+                                                <Image 
+                                                    className="project__image"
+                                                    src={item.image} />                                                
+                                
                                                 <h2 className="project__title">
                                                     {item.title}
                                                 </h2>
+                        
                                                 <div className="project__bassline">
                                                     <div className="project__blurb">
                                                         {item.description}
                                                     </div>
                                                 </div>
+
                                                 <span className="project__subtitle">
                                                     {item.client}
                                                 </span>

@@ -14,7 +14,6 @@ import ProjectsRoute from './Pages/Home';
 import Project from './Pages/Project/project.js';
 import AboutPage from './Pages/About';
 import ContactPage from './Pages/Contact';
-import Navigation from './Components/Navigation';
 
 class App extends Component {
 
@@ -24,7 +23,6 @@ class App extends Component {
       <Router history={browserHistory}>
         <ScrollToTop>
           <div className="page">
-              <Navigation></Navigation>
               <Route exact path="/" component={SplashRoute}/>
               <Route path="/projects" component={ProjectsRoute}/>
               <Route path="/about" component={AboutPage}/>

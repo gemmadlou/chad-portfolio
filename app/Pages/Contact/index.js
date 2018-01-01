@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from '../../Components/Logo/logo.js';
+import Navigation from '../../Components/Navigation/index.js';
 
 const ContactPage = (props) => {
 
@@ -20,7 +21,9 @@ const ContactPage = (props) => {
 
     return (
         <div className="contact">
-            <Logo></Logo>
+            <Logo />
+            <Navigation />
+
             <div className="contact__image-holder">
                 <img 
                     src="http://unsplash.it/1000/1000" 

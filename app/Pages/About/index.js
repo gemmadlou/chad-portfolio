@@ -1,10 +1,12 @@
 import React from 'react';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Logo from '../../Components/Logo/logo.js';
+import Navigation from '../../Components/Navigation/index.js';
 
 const AboutPage = () => {
     return (<div>
         <Logo></Logo>
+        <Navigation />
 
         <div className="about">
             <div className="about__image-container">

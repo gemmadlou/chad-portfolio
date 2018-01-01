@@ -19,7 +19,7 @@ class SplashRoute extends Component {
     
     this.timeoutHandle = setTimeout(()=> {
       this.setState({redirect: true})
-    }, 5000);
+    }, 3500);
   }
 
   componentWillUnmount(){

@@ -5,10 +5,11 @@
     height: 100vh;
 
     &__logo {
-        animation: fadein 3s;
+        animation: splash 3s ease-out;
+        animation-iteration-count: 1;
         height: 300px;
         left: 50%;
-        opacity: 1;
+        opacity: 0;
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
@@ -22,4 +23,19 @@
             fill: $white;
         }
     }
+}
+
+@keyframes splash {
+    0% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
 }
