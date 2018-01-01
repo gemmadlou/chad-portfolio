@@ -1,7 +1,10 @@
-.prj-summary {
+.prj-image-summary {
+    background-color: $black;
+    color: $white; 
+    position: relative;
 
     &__lead {
-        background-color: $white;
+        overflow: hidden;
         padding: $component-spacing $gutter-small;
     }
 
@@ -10,19 +13,13 @@
         line-height: line-height($font-size-xsmall);
     }
 
-    &__meta {
+    &__image-holder {
         background-color: $lightgrey;
-        padding: $component-spacing $gutter-small;
     }
 
-    &__meta-item {
-        font-size: $font-size-xxsmall;
-        line-height: line-height($font-size-xxsmall);
-        margin-bottom: $component-spacing-small;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
+    &__image {
+        height: auto;
+        width: 100%;
     }
 
     @media only screen and (min-width: $small) {
@@ -36,11 +33,6 @@
             font-size: $font-size-small;
             line-height: line-height($font-size-small);
         }
-
-        &__meta {
-            padding-bottom: $component-spacing-small;
-            padding-top: $component-spacing-small;
-        }
     }
 
     @media only screen and (min-width: $medium) {
@@ -50,8 +42,7 @@
         &__lead {
             align-items: center;
             display: flex;
-            flex-basis: (100%/3*2);
-            overflow: hidden;
+            flex-basis: (100%/2);
             padding: $component-spacing-medium $gutter-medium;
         }
 
@@ -60,19 +51,20 @@
             line-height: line-height($font-size-medium);
         }
 
-        &__meta {
-            align-items: flex-start;
-            display: flex;
-            flex-basis: (100%/3);
-            flex-direction: column;
-            justify-content: center;
-            overflow: hidden;
-            padding: $component-spacing-medium $gutter-medium;
+        &__image-holder {
+            height: 100%;
+            position: absolute;
+            right: 0;
+            width: (100%/2);
         }
 
-        &__meta-item {
-            font-size: $font-size-xsmall;
-            line-height: line-height($font-size-xsmall);
+        &__image {
+            height: 100%;
+            left: 0;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            width: 100%;
         }
     }
 
@@ -80,20 +72,13 @@
         min-height: 100vh;
 
         &__lead {
+            flex-basis: (100%/3*2);
             padding-left: $gutter-large;
             padding-right: $gutter-large;
         }
 
-        &__lead-text {
-            display: block;
-            font-size: $font-size-large;
-            line-height: line-height($font-size-large);
-            max-width: (100%/4*3);
-        }
-
-        &__meta {
-            padding-left: $gutter-large;
-            padding-right: $gutter-large;
+        &__image-holder {
+            width: (100%/3);
         }
     }
 
@@ -104,3 +89,4 @@
         }
     }
 }
+    

@@ -13,94 +13,37 @@ class Project extends Component {
         super(props);
         this.repository = new ProjectService;
         this.state = {
-          title: '',
-          introduction: '',
-          imageURL: '',
-          meta: [],
+          finalWords: {},
+          hero: {},
+          introduction: null,
           gallery: [],
-          heroImage: '',
-          heroText: '',
-          multiBoard: [],
-          duoImage: [],
-          slider: { text: '', slides: []}
+          multiboard: undefined,
+          duoImages: [],
+          slider: undefined
         }
     }
     
     componentDidMount() {
-
-
       this.repository.getBySlug(this.props.match.params.id)
-      .then(res => {
-        console.log(res.item);
-        this.setState({ 
-          title: res.item.fields.title,
-          introduction: res.item.fields.introductionStatement || '',
-          image: res.includes.Asset.find((asset) => {
-              return res.item.fields.featuredImage.sys.id === asset.sys.id
-          }).fields.file.url,
-          meta: res.item.fields.projectMeta ?
-            res.item.fields.projectMeta.map(meta => {
-              return res.includes.Entry.find(include => include.sys.id === meta.sys.id)
-            }).map(meta => {
-              return {
-                title: meta.fields.title,
-                blurb: meta.fields.blurb
-              }
-            }) : [],
-          gallery: res.item.fields.gallery ? 
-            res.item.fields.gallery.map(image => {
-              return image.fields.file.url;
-            }) : [],
-          heroImage: !res.item.fields.heroBlockImage
-            ? ''
-            : res.includes.Asset.find((asset) => {
-                return res.item.fields.heroBlockImage.sys.id === asset.sys.id
-            }).fields.file.url,
-          heroText: res.item.fields.heroBlockText || '',
-          multiBoard: !res.item.fields.multiBoard
-            ? [] 
-            : res.item.fields.multiBoard.map(board => {
-              return {
-                smallImage: board.fields.smallImage.fields.file.url,
-                largeImage: board.fields.largeImage.fields.file.url,
-                blurb: board.fields.blurb,
-                title: ''
-              }
-            }),
-          duoImage: Array.isArray(res.item.fields.dualImageModule) && res.item.fields.dualImageModule.length > 0
-            ? res.item.fields.dualImageModule.map(image => {
-              return image.fields.file.url;
-            })
-            : [],
-          slider: {
-            slides: res.item.fields.projectSlider && res.item.fields.projectSlider.fields.slides.length > 0
-              ? res.item.fields.projectSlider.fields.slides.map(slide => {
-                return slide.fields.file.url;
-              })
-              : [],
-            text: res.item.fields.projectSlider
-              ? res.item.fields.projectSlider.fields.title
-              : []
-          }
+        .then(model => {
+          this.setState(model)
         });
-
-        let slider = new Slider({ selector: '.slider' });
-      });
     }
   
     render() {
+
       return (
         <div>
 
           <Logo></Logo>
 
           <Hero 
-            image={this.state.image}
-            title={this.state.title}>
+            image={this.state.hero.image}
+            title={this.state.hero.title}>
           </Hero>
 
           {(() => {
-            if (!this.state.introduction || this.state.meta.length === 0) {
+            if (!this.state.introduction) {
               return null;
             }
             return (
@@ -108,17 +51,17 @@ class Project extends Component {
               <div className="prj-summary__lead">
                   <span className="prj-summary__lead-text">
                     <WhenInView>
-                      {this.state.introduction}
+                      {this.state.introduction.blurb}
                     </WhenInView>
                   </span>
               </div>
               <ul className="prj-summary__meta">
                 <WhenInView>
-                  {this.state.meta.map((meta, index) => {
+                  {this.state.introduction.meta.map((meta, index) => {
                     return (
                       <li key={index} className="prj-summary__meta-item">
                         <h2 className="prj-summary__meta-title">{meta.title}</h2>
-                        <p className="prj-summary__meta-text">{meta.blurb}</p>
+                        <p className="prj-summary__meta-text">{meta.value}</p>
                       </li>
                     );
                   })}
@@ -129,66 +72,65 @@ class Project extends Component {
           })()}
 
           {(() => {
-            if (this.state.multiBoard.length === 0) {
+            if (!this.state.multiboard) {
               return;
             }
             return (
               <MultiBoard
-                title={this.state.multiBoard[0].title}
-                blurb={this.state.multiBoard[0].blurb}
-                smallImage={this.state.multiBoard[0].smallImage}
-                largeImage={this.state.multiBoard[0].largeImage}></MultiBoard>
-              
+                title={this.state.multiboard.title}
+                blurb={this.state.multiboard.blurb}
+                smallImage={this.state.multiboard.smallImage}
+                largeImage={this.state.multiboard.largeImage}></MultiBoard>
             );
           })()}
 
           {(() => {
-            if (this.state.duoImage)  {
+            if (this.state.duoImages.length !== 2)  {
               return;
             }
-            return (
-              <div className="prj-dual-hero">
+            return (<div className="prj-dual-hero">
                 <div className="prj-dual-hero__image-wrapper">
-                  <img className="prj-dual-hero__image" src={this.state.duoImage[0]} />
+                  <img className="prj-dual-hero__image" src={this.state.duoImages[0]} />
                 </div>
                 <div className="prj-dual-hero__image-wrapper">
-                  <img className="prj-dual-hero__image" src={this.state.duoImage[1]} />
+                  <img className="prj-dual-hero__image" src={this.state.duoImages[1]} />
                 </div>
               </div>
             );
-          })}
-          
-  
-          <Hero
-            image={this.state.heroImage}
-            title={this.state.heroText}></Hero>
-  
-            {(() => {
-              if (this.state.multiBoard.length < 2) {
-                return;
-              }
-              return (
-                <MultiBoard
-                  title={this.state.multiBoard[1].title}
-                  blurb={this.state.multiBoard[1].blurb}
-                  smallImage={this.state.multiBoard[1].smallImage}
-                  largeImage={this.state.multiBoard[1].largeImage}></MultiBoard>
-                
-              );
-            })()}
+          })()}
   
           <ImageGallery 
             images={this.state.gallery}
           ></ImageGallery>
+
+          {(() => {
+            if (!this.state.finalWords) {
+              return;
+            }
+            return (
+            <div className="prj-image-summary">
+              <div className="prj-image-summary__lead">
+                  <span className="prj-image-summary__lead-text">
+                    <WhenInView>
+                      {this.state.finalWords.text}
+                    </WhenInView>
+                  </span>
+              </div>
+              <div className="prj-image-summary__image-holder">
+                <img className="prj-image-summary__image" src={this.state.finalWords.image} />
+              </div>
+            </div>
+            );
+          })()}
           
           {(() => {
-            if (this.state.slider.slides.length === 0) {
+            if (!this.state.slider) {
               return null;
             }
             return (<div className="prj-slider">
               <div className="prj-slider__blurb">
                 <WhenInView>
-                {this.state.slider.text}
+                  {this.state.slider.text}
                 </WhenInView>
               </div>
               <div className="prj-slider__slide">

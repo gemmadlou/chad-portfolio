@@ -20,9 +20,7 @@ export default class WhenInView extends Component {
         let classes = "animate animate__" + this.state.animationType;
             classes += this.state.inView ? " in" : "";
         return (<div className={classes}>
-            <Waypoint
-                onEnter={this.onEnter}
-            />
+            <div><Waypoint onEnter={this.onEnter} /></div>
             {this.props.children}
         </div>);
     }

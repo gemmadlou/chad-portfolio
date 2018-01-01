@@ -1,15 +1,11 @@
 import {createClient} from 'contentful';
 import config from '../../config.js'; 
+import {mapper} from '../Mapper/project.js';
 
 const client = createClient({
     space: config.CONTENTFUL_KEY,
     accessToken: config.CONTENTFUL_TOKEN
 });
-
-let handleError = (err) => {
-    console.warn(err);
-    return Promise.resolve(err);
-};
 
 export default class {
     all() {
@@ -19,20 +15,18 @@ export default class {
         })
         .catch(handleError);
     }
-
+    
     getBySlug(slug) {
         return client.getEntries({
-            content_type: 'project',
-            'fields.slug': slug || 0,
+            content_type: 'projectPage',
+            'fields.projectSlug': slug || 0,
             limit: 1
         })
-        .then((res) => {
+        .then(res => {
             if (res.items.length === 0) {
                 throw new Error('No page found with this slug');
             }
-            res.item = res.items[0];
-            return Promise.resolve(res);
-        })
-        .catch(handleError);
+            return mapper(res);
+        });
     }
 }

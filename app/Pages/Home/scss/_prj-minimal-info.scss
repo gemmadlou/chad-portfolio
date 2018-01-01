@@ -4,6 +4,7 @@
         background-color: $lightergrey;
         font-size: $body-font-base;
         line-height: line-height($body-font-base);
+        overflow: hidden;
         padding: $component-spacing-small $gutter-base;
     }
 
