@@ -1,11 +1,9 @@
 .project {
     $this: &;
+    
+    @extend %spinner;
 
     background-color: $black;
-    background-image: $spinner;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 60px 60px;
     color: $white;
     display: flex;
     flex-direction: column;
