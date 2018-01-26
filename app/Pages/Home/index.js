@@ -80,6 +80,8 @@ class ProjectsRoute extends Component {
                                     <div className="project" onClick={this.goTo.bind(this, item.slug)}>
                                         <Image 
                                             className="project__image"
+                                            lazyClassName=""
+                                            lazyLoadClassName="loaded"
                                             src={item.image} />                                                
                         
                                         <h2 className="project__title">

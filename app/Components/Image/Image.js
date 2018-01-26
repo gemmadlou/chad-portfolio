@@ -4,11 +4,14 @@ export default class Image extends Component {
     constructor({
         src = '',
         className = '',
+        lazyClassName = 'lazy',
+        lazyLoadClassName = 'lazy__loaded'
     }) {
         super();
         this.state = {
             src,
-            classes: ['lazy'].concat(className.split(' '))
+            classes: [lazyClassName].concat(className.split(' ')),
+            lazyloadedclass: lazyLoadClassName
         }
         this.handleImageOnLoad = this.handleImageOnLoad.bind(this);
         this.handleImageLoadError = this.handleImageLoadError.bind(this);
@@ -16,7 +19,7 @@ export default class Image extends Component {
 
     handleImageOnLoad() {
         let classes = this.state.classes.splice(0);
-        classes.push('lazy__loaded')
+        classes.push(this.state.lazyloadedclass)
         this.setState({
             classes
         })
