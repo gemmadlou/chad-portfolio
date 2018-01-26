@@ -2,6 +2,10 @@
     $this: &;
 
     background-color: $black;
+    background-image: $spinner;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
     color: $white;
     display: flex;
     flex-direction: column;
@@ -35,7 +39,7 @@
         position: absolute;
         top: 0;
         transform: scale3d(1, 1, 1);
-        transition: opacity $animate-speed $smooth-easing, transform 5.0s $smooth-easing;
+        transition: opacity $animate-speed $smooth-easing 1.5s, transform 10.0s $smooth-easing;
         width: 100%;
         z-index: 0;
 
@@ -114,7 +118,7 @@
             }
 
             #{$this}__image {
-                transform: scale3d(1.05, 1.05, 1.05);
+                transform: scale3d(1.1, 1.1, 1.1);
             }
         }
     }
