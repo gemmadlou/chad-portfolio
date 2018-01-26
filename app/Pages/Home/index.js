@@ -73,35 +73,29 @@ class ProjectsRoute extends Component {
 
                 {this.state.work.map((slide, index) => {
                     return <li key={index} className="home-slider__slide">
-                                <div className="projects">
-                                    {slide.map((item, index) => {
+                        <div className="projects">
+                            {slide.map((item, index) => {
 
-                                    return <div key={index} className="projects__item">
-                                            <div className="project" onClick={this.goTo.bind(this, item.slug)}>
-                                                
-
-                                                <Image 
-                                                    className="project__image"
-                                                    src={item.image} />                                                
-                                
-                                                <h2 className="project__title">
-                                                    {item.title}
-                                                </h2>
+                            return <div key={index} className="projects__item">
+                                    <div className="project" onClick={this.goTo.bind(this, item.slug)}>
+                                        <Image 
+                                            className="project__image"
+                                            lazyClassName=""
+                                            lazyLoadClassName="loaded"
+                                            src={item.image} />                                                
                         
-                                                <div className="project__bassline">
-                                                    <div className="project__blurb">
-                                                        {item.description}
-                                                    </div>
-                                                </div>
+                                        <h2 className="project__title">
+                                            {item.title}
+                                        </h2>
 
-                                                <span className="project__subtitle">
-                                                    {item.client}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    })}
+                                        <span className="project__subtitle">
+                                            {item.client}
+                                        </span>
+                                    </div>
                                 </div>
-                            </li>
+                            })}
+                        </div>
+                    </li>
                 })}
             </ol>
         </div>
