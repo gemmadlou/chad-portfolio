@@ -30,7 +30,6 @@
         height: 100%;
         left: 0;
         object-fit: cover;
-        opacity: .9;
         position: absolute;
         top: 0;
         width: 100%;
@@ -42,56 +41,23 @@
         content: '';
         height: 100%;
         left: 0;
-        opacity: .1;
+        opacity: .2;
         position: absolute;
         top: 0;
         width: 100%;
         z-index: 1;
     }
 
-    &__bassline {
-        overflow: hidden;
-        top: 0;
-        z-index: 3;
-        height: 40px;
-    }
-
-    &__blurb {
-        font-size: $font-size-xxsmall;
-        line-height: line-height($font-size-xxsmall);
-        padding-bottom: $baseline;
-        position: relative;
-        color: #40ffe6;
-        overflow-y: hidden;
-        top: 40px;
-        transition: top ease 0.3s;
-        z-index: 1;
-        line-height: 10px;
-        color: white;
-        z-index: 2;
-    }
-
     &__subtitle {
         line-height: line-height($font-size-xxsmall);
         font-size: $font-size-xxsmall;
+        padding: .5rem;
         position: relative;
+        text-shadow: 0 0 1px $black;
+        text-transform: uppercase;
         transition: bottom ease 0.3s;
         z-index: 3;
         bottom: 0;
-    }
-
-    &:hover > &__subtitle {
-        bottom: -1rem;
-    }
-
-    &:hover > &__bassline > &__blurb {
-        top: 0;
-    }
-
-    &:hover {
-        #{$this}__title {
-            top: -1rem;
-        }
     }
 
     &__link {
@@ -112,8 +78,7 @@
             line-height: line-height($font-size-large);
         }
 
-        &__subtitle,
-        &__blurb {
+        &__subtitle {
             font-size: $font-size-xsmall;
             line-height: line-height($font-size-xsmall);
         }
@@ -132,16 +97,7 @@
         padding-right: 8rem;
     }
 }
-@media (max-width: 750px){
-    .project__blurb {
-        padding-top: 10px;
-        line-height: 20px;
 
-    }
-    .project:hover > .project__bassline > .project__blurb {
-        top: -10px;
-    }
-}
 @media (max-width: 250px){
     .project__blurb {
         line-height: 1px;
