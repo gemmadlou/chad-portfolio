@@ -1,19 +1,50 @@
 import React, {Component} from 'react';
+import Image from '../Image/Image.js';
 
 import WhenInView from '../WhenInView/WhenInView.js';
 
-export default function Hero({image, title}) {
-
-    if (!image) {
-        return null;
+export default class Hero extends Component {
+    constructor({
+        image,
+        title
+    }) {
+        super();
+        this.state = {
+            image,
+            title
+        }
     }
-    
-    return <div className="hero">
-            <img className="hero__image" src={image} />
-            <h1 className="hero__title">
-                <WhenInView>
-                {title}
-                </WhenInView>
-            </h1>
-        </div>;
+
+    componentWillReceiveProps({
+        image,
+        title
+    }) {
+        this.setState({
+            image, 
+            title
+        })
+    }
+
+    render() {
+        return <div className="hero">
+                {!this.state.image ? (
+                    <img 
+                        className="hero__image" 
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" />
+                ) : (
+                    <Image 
+                    className="hero__image"
+                    lazyClassName=""
+                    lazyLoadClassName="loaded"
+                    src={this.state.image} />
+                )}
+                
+                <h1 className="hero__title">
+                    <WhenInView>
+                    {this.state.title}
+                    </WhenInView>
+                </h1>
+            </div>;
+    }
+
 }

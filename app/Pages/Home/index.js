@@ -47,7 +47,6 @@ class ProjectsRoute extends Component {
                     return current;
                 }, []);
 
-                console.log(work);
                 this.setState({work: chunkArray(work, 3)})
             });
     }

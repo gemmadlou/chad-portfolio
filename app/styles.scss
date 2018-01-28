@@ -6,6 +6,10 @@
 
 @import 'Style/components/page';
 
+//Utils
+@import "Style/utils/aspect-ratio";
+@import "Style/utils/lazy-load";
+
 //Pages
 @import "Pages/Home/scss/index";
 @import "Pages/Contact/contact";
@@ -13,6 +17,10 @@
 @import "Pages/About/about";
 @import "Pages/Splash/index";
 @import "Pages/Project/prj-image-summary";
+@import "Pages/Project/prj-dual-hero";
+@import "Pages/Project/prj-minimal-info";
+@import "Pages/Project/prj-slider";
+@import "Pages/Project/prj-summary";
 
 //Components
 @import "Components/Hamburger/Hamburger";
@@ -22,7 +30,3 @@
 @import "Components/Logo/logo";
 @import "Components/Menu/menu";
 @import "Components/Navigation/navigation";
-
-//Utils
-@import "Style/utils/aspect-ratio";
-@import "Style/utils/lazy-load";
