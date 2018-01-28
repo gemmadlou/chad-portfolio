@@ -6,6 +6,10 @@
 
 @import 'Style/components/page';
 
+//Utils
+@import "Style/utils/aspect-ratio";
+@import "Style/utils/lazy-load";
+
 //Pages
 @import "Pages/Home/scss/index";
 @import "Pages/Contact/contact";
@@ -26,7 +30,3 @@
 @import "Components/Logo/logo";
 @import "Components/Menu/menu";
 @import "Components/Navigation/navigation";
-
-//Utils
-@import "Style/utils/aspect-ratio";
-@import "Style/utils/lazy-load";

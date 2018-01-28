@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from '../Image/Image';
 
 export default function ({ images = []}) {
     if (images.length === 0) {
@@ -11,7 +12,11 @@ export default function ({ images = []}) {
           return (
             <div key={index} className="image-gallery__item">
               <div className="aspect-ratio">
-                <img className="image-gallery__image" src={image} />
+                <Image
+                  src={image}
+                  className="image-gallery__image"
+                  lazyLoadClassName="loaded"
+                />
               </div>
             </div>
           );

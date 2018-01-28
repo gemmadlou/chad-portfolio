@@ -22,7 +22,11 @@ export default class Image extends Component {
         classes.push(this.state.lazyloadedclass)
         this.setState({
             classes
-        })
+        });
+    }
+
+    componentWillReceiveProps({ src }) {
+        this.setState({ src })
     }
 
     handleImageLoadError() {

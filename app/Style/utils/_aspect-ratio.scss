@@ -1,6 +1,7 @@
 .aspect-ratio {
     display: block;
     height: 0;
+    overflow: hidden;
     padding-bottom: 100%;
     position: relative;
     width: 100%;

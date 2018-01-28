@@ -1,4 +1,6 @@
 .prj-image-summary {
+    $this: &;
+
     background-color: $black;
     color: $white; 
     position: relative;
@@ -14,12 +16,17 @@
     }
 
     &__image-holder {
+        @extend %spinner;
         background-color: $lightgrey;
     }
 
     &__image {
         height: auto;
         width: 100%;
+        
+        &.loaded {
+            opacity: 1;
+        }
     }
 
     @media only screen and (min-width: $small) {
@@ -53,6 +60,7 @@
 
         &__image-holder {
             height: 100%;
+            overflow: hidden;
             position: absolute;
             right: 0;
             width: (100%/2);
@@ -64,7 +72,15 @@
             object-fit: cover;
             position: absolute;
             top: 0;
+            transform: $scale-start;
+            transition: opacity $animate-speed ease-in, transform $animate-very-slow $smooth-easing;
             width: 100%;
+        }
+
+        &:hover {
+            #{$this}__image {
+                transform: $scale-end;
+            }
         }
     }
 

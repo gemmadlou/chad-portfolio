@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Hero from '../../Components/Hero/hero.js';
 import Logo from '../../Components/Logo/logo.js';
+import Image from '../../Components/Image/Image.js';
 import ImageGallery from '../../Components/Image-Gallery/imagegallery.js';
 import Slider from 'jgb-slider';
 import WhenInView from '../../Components/WhenInView/WhenInView.js';
@@ -92,10 +93,18 @@ class Project extends Component {
             }
             return (<div className="prj-dual-hero">
                 <div className="prj-dual-hero__image-wrapper">
-                  <img className="prj-dual-hero__image" src={this.state.duoImages[0]} />
+                  <Image
+                    className="prj-dual-hero__image"
+                    lazyLoadClassName="loaded"
+                    src={this.state.duoImages[0]}
+                  />
                 </div>
                 <div className="prj-dual-hero__image-wrapper">
-                  <img className="prj-dual-hero__image" src={this.state.duoImages[1]} />
+                  <Image
+                    className="prj-dual-hero__image"
+                    lazyLoadClassName="loaded"
+                    src={this.state.duoImages[1]}
+                  />
                 </div>
               </div>
             );
@@ -119,7 +128,10 @@ class Project extends Component {
                   </span>
               </div>
               <div className="prj-image-summary__image-holder">
-                <img className="prj-image-summary__image" src={this.state.finalWords.image} />
+                <Image
+                  className="prj-image-summary__image"
+                  lazyLoadClassName="loaded"
+                  src={this.state.finalWords.image} />
               </div>
             </div>
             );

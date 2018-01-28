@@ -1,9 +1,12 @@
 .image-gallery {
+    $this: &;
+
     @extend %component-vertical-spacing;
     @include guttering();
     background-color: $white;
 
     &__item {
+        @extend %spinner;
         margin-bottom: $baseline * 2;
     }
 
@@ -32,6 +35,17 @@
         &__item {
             flex-basis: (100% / 3);
             width: (100% / 3);
+
+            #{$this}__image {
+                transform: $scale-start;
+                transition: opacity $animate-speed ease-in, transform $animate-very-slow $smooth-easing;
+            }
+
+            &:hover {
+                #{$this}__image {
+                    transform: $scale-end;
+                }
+            }
         }
     }
 

@@ -1,7 +1,7 @@
 .animate {
     &__subtle {
         transform: translateY(3.5rem);
-        transition: transform .65s ease-in-out .1s;
+        transition: transform .95s ease-in-out .15s;
     
         &.in {
             transform: none;

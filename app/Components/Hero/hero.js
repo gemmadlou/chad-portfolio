@@ -26,7 +26,6 @@ export default class Hero extends Component {
     }
 
     render() {
-        console.log(this.state);
         return <div className="hero">
                 {!this.state.image ? (
                     <img 
