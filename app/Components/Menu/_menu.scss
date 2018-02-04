@@ -28,14 +28,14 @@
         &:nth-child(2) {
             background-color: $darkergrey;
             transform: translate3d(-200%, 0, 0);
-            transition: transform ($navigation-speed/7*4) $easing .55s;
+            transition: transform ($navigation-speed/3*2) $easing .55s;
             z-index: 2;
         }
 
         &:nth-child(3) {
             background-color: $black;
             transform: translate3d(-300%, 0, 0);
-            transition: transform ($navigation-speed/6*5) $easing .7s;
+            transition: transform ($navigation-speed) $easing .7s;
             z-index: 1;
         }
         
