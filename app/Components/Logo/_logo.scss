@@ -1,9 +1,9 @@
 .logo {
-  height: 4rem;
+  height: 1.75rem;
   left: $gutter-base;
   position: absolute;
-  top: 1.5rem;
-  width: 4rem;
+  top: 3.5rem;
+  width: 1.75rem;
   z-index: 2;
 
   svg {
@@ -16,6 +16,6 @@
 
   @media (min-width: $medium) {
     left: $gutter-small;
-    top: $gutter-small;
+    top: 2rem;
   }
 }
