@@ -7,12 +7,17 @@
     right: 0;
     top: 0;
     transition: height 0s linear $this-speed;
+    will-change: transform;
     width: 100%;
     z-index: 2;
     
     &--active {
         height: 100%;
         transition: height 0s;
+    }
+
+    &--sticky {
+        position: absolute;
     }
 
     &__hamburger {

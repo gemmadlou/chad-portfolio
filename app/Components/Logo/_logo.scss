@@ -2,8 +2,9 @@
   height: 1.75rem;
   left: $gutter-base;
   position: absolute;
-  top: 3.5rem;
+  top: 2.5rem;
   width: 1.75rem;
+  will-change: transform;
   z-index: 2;
 
   svg {
@@ -12,10 +13,5 @@
 
   path {
     fill: $white;
-  }
-
-  @media (min-width: $medium) {
-    left: $gutter-small;
-    top: 2rem;
   }
 }

@@ -10,7 +10,8 @@ class Navigation extends Component {
         this.state = {
             active: false,
             menuClasses: [],
-            navigationClasses: []
+            navigationClasses: [],
+            sticky: props.sticky == true
         }
         
         this.toggleActive = this.toggleActive.bind(this);
@@ -29,7 +30,8 @@ class Navigation extends Component {
         ];
         state.navigationClasses = [
           'navigation',
-          (state.active) ? 'navigation--active' : ''
+          state.sticky ? 'navigation--sticky' : '',
+          state.active ? 'navigation--active' : ''
         ];
         this.setState(state);
     }

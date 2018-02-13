@@ -41,7 +41,9 @@ class ProjectsRoute extends Component {
                         title: next.fields.heroTitle,
                         description: next.fields.projectInfo,
                         client: next.fields.clientName,
-                        image: next.fields.heroImage.fields.file.url,
+                        image: next.fields.heroImagePortrait
+                            ? next.fields.heroImagePortrait.fields.file.url
+                            : next.fields.heroImage.fields.file.url,
                         slug: next.fields.projectSlug
                     });
                     return current;
@@ -81,11 +83,7 @@ class ProjectsRoute extends Component {
                                             className="project__image"
                                             lazyClassName=""
                                             lazyLoadClassName="loaded"
-                                            src={item.image} />                                                
-                        
-                                        <h2 className="project__title">
-                                            {item.title}
-                                        </h2>
+                                            src={item.image} />
 
                                         <span className="project__subtitle">
                                             {item.client}

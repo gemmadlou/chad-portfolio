@@ -6,7 +6,10 @@ import Navigation from '../../Components/Navigation/index.js';
 const AboutPage = () => {
     return (<div>
         <Logo></Logo>
-        <Navigation />
+
+        <Navigation
+            sticky={true}
+        />
 
         <div className="about">
             <div className="about__image-container">

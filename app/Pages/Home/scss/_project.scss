@@ -1,7 +1,7 @@
 .project {
     $this: &;
     
-    @extend %spinner;
+    //@extend %spinner;
 
     background-color: $black;
     color: $white;
@@ -17,17 +17,6 @@
     width: 100%;
     z-index: 0;
 
-    &__title  {
-        font-size: $font-size-medium;
-        line-height: line-height($font-size-medium);
-        margin: 0;
-        padding-bottom: $baseline;
-        position: relative;
-        top: 12px;
-        transition: top ease 0.3s;
-        z-index: 2;
-    }
-
     &__image {
         filter: contrast(1.07) saturate(1.15);
         height: 100%;
@@ -39,6 +28,7 @@
         transform: scale3d(1, 1, 1);
         transition: opacity $animate-speed $smooth-easing 1.5s, transform 8.0s $smooth-easing;
         width: 100%;
+        will-change: transform, opacity;
         z-index: 0;
 
         &.loaded {
@@ -46,17 +36,17 @@
         }
     }
 
-    &:after {
-        background-color: $black;
-        content: '';
-        height: 100%;
-        left: 0;
-        opacity: .1;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: 1;
-    }
+    // &:after {
+    //     background-color: $black;
+    //     content: '';
+    //     height: 100%;
+    //     left: 0;
+    //     opacity: .1;
+    //     position: absolute;
+    //     top: 0;
+    //     width: 100%;
+    //     z-index: 1;
+    // }
 
     &__subtitle {
         line-height: line-height($font-size-xxsmall);
@@ -65,7 +55,7 @@
         position: relative;
         text-shadow: 0 0 1px $black;
         text-transform: uppercase;
-        transition: bottom ease 0.3s;
+        will-change: opacity;
         z-index: 3;
         bottom: 0;
     }
@@ -83,17 +73,10 @@
         padding-left: $gutter-medium;
         padding-right: $gutter-medium;
 
-        &:after {
-            opacity: .1;
-            transition: opacity .3s ease-in-out;
-        }
-
-        &__title {
-            font-size: $font-size-large;
-            line-height: line-height($font-size-large);
-            opacity: 0;
-            transition: opacity 1.4s ease-in-out .6s;
-        }
+        // &:after {
+        //     opacity: .1;
+        //     transition: opacity .3s ease-in-out;
+        // }
 
         &__subtitle {
             font-size: $font-size-xsmall;
@@ -103,17 +86,14 @@
         }
 
         &:hover {
-            #{$this}__title {
-                opacity: 1;
-            }
 
             #{$this}__subtitle {
                 opacity: 1;
             }
 
-            &:after {
-                opacity: .4;
-            }
+            // &:after {
+            //     opacity: .4;
+            // }
 
             #{$this}__image {
                 transform: scale3d(1.1, 1.1, 1.1);
@@ -123,20 +103,9 @@
 
     @media (min-width: $large) {
         padding-bottom: $baseline * 3;
-
-        &__title {
-            line-height: line-height($font-size-xlarge);
-            font-size: $font-size-xlarge;
-        }
     }
 
     @media (smin-width: $x-large) {
         padding-right: 8rem;
-    }
-}
-
-@media (max-width: 250px){
-    .project__blurb {
-        line-height: 1px;
     }
 }
