@@ -5,13 +5,16 @@ export default class Image extends Component {
         src = '',
         className = '',
         lazyClassName = 'lazy',
-        lazyLoadClassName = 'lazy__loaded'
+        lazyLoadClassName = 'lazy__loaded',
+        onLoad = () => {}
     }) {
         super();
         this.state = {
             src,
-            classes: [lazyClassName].concat(className.split(' ')),
-            lazyloadedclass: lazyLoadClassName
+            classes: [].concat(className.split(' ')),
+            lazyLoadClassName,
+            onLoad,
+            loaded: false
         }
         this.handleImageOnLoad = this.handleImageOnLoad.bind(this);
         this.handleImageLoadError = this.handleImageLoadError.bind(this);
@@ -19,10 +22,11 @@ export default class Image extends Component {
 
     handleImageOnLoad() {
         let classes = this.state.classes.splice(0);
-        classes.push(this.state.lazyloadedclass)
         this.setState({
-            classes
+            classes,
+            loaded: true
         });
+        this.state.onLoad();
     }
 
     componentWillReceiveProps({ src }) {
@@ -34,10 +38,10 @@ export default class Image extends Component {
     }
 
     render() {
-        return <img 
-            src={this.state.src}
+        return <span className={`lazy ${this.state.loaded ? this.state.lazyLoadClassName : ''}`}><img 
             className={this.state.classes.join(' ')}
+            src={this.state.src}
             onLoad={this.handleImageOnLoad}
-            onError={this.handleImageLoadError} />;
+            onError={this.handleImageLoadError} /></span>;
     }
 }

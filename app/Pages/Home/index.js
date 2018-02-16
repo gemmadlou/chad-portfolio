@@ -44,6 +44,7 @@ class ProjectsRoute extends Component {
                         image: next.fields.heroImagePortrait
                             ? next.fields.heroImagePortrait.fields.file.url
                             : next.fields.heroImage.fields.file.url,
+                        imageLoaded: false,
                         slug: next.fields.projectSlug
                     });
                     return current;
@@ -59,6 +60,12 @@ class ProjectsRoute extends Component {
         });
     }
 
+    handleImageLoad(chunk, index) {
+        let newstate = Object.assign({}, this.state);
+        newstate.work[chunk][index].imageLoaded = true;
+        this.setState(newstate);
+    }
+
     goTo(page) {
         window.location.href = "/project/" + page;
     }
@@ -72,22 +79,23 @@ class ProjectsRoute extends Component {
            <div className="home-slider">
               <ol className="home-slider__slider" style={{width: this.state.work.length * 100 + '%'}}>
 
-                {this.state.work.map((slide, index) => {
-                    return <li key={index} className="home-slider__slide">
+                {this.state.work.map((slide, chunk) => {
+                    return <li key={chunk} className="home-slider__slide">
                         <div className="projects">
                             {slide.map((item, index) => {
 
                             return <div key={index} className="projects__item">
-                                    <div className="project" onClick={this.goTo.bind(this, item.slug)}>
+                                    <div className={`project ${item.imageLoaded ? 'project--loaded' : ''}`} onClick={this.goTo.bind(this, item.slug)}>
                                         <Image 
                                             className="project__image"
-                                            lazyClassName=""
-                                            lazyLoadClassName="loaded"
+                                            onLoad={this.handleImageLoad.bind(this, chunk, index)}
                                             src={item.image} />
 
                                         <span className="project__subtitle">
                                             {item.client}
                                         </span>
+
+                                        <span className={`project__spinner`}></span>
                                     </div>
                                 </div>
                             })}
