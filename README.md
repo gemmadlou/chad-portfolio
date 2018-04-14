@@ -1,28 +1,39 @@
-# Brunch + Babel/ES6
+# Base Kulture portfolio
 
-This is a modern JS skeleton for [Brunch](http://brunch.io).
+### Made with the NPM Starter
 
-## Installation
+https://github.com/gemmadlou/Npm-Sass-Package-Starter.git
 
-Clone this repo manually or use `brunch new dir -s es6`
+This starter repo is to help build npm packages easily. Features are:
 
-## Getting started
+* ES6 (Babel)
+* Jest (testing)
+* SASS
 
-* Install (if you don't have them):
-    * [Node.js](http://nodejs.org): `brew install node` on OS X
-    * [Brunch](http://brunch.io): `npm install -g brunch`
-    * Brunch plugins and app dependencies: `npm install`
-* Run:
-    * `npm start` — watches the project with continuous rebuild. This will also launch HTTP server with [pushState](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Manipulating_the_browser_history).
-    * `npm run build` — builds minified project for production
-* Learn:
-    * `public/` dir is fully auto-generated and served by HTTP server.  Write your code in `app/` dir.
-    * Place static files you want to be copied from `app/assets/` to `public/`.
-    * [Brunch site](http://brunch.io), [Getting started guide](https://github.com/brunch/brunch-guide#readme)
+## Workflow
 
-## ES-next
+* Watch and develop your plugin
 
-To use proposed JS features not included into ES6, do this:
+```shell
+yarn run dev
+```
 
-* `npm install --save-dev babel-preset-stage-0`
-* in `brunch-config.js`, add the preset: `presets: ['latest', 'stage-0']`
+* Build a production version of your plugin
+
+```shell
+yarn run production
+```
+
+## Tests
+
+* Run tests once
+
+```
+yarn run test
+```
+
+* Watch tests
+
+```shell
+yarn run test:watch
+```

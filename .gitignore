@@ -30,3 +30,5 @@ public/*
 
 # Environment
 .config.js
+
+coverage/

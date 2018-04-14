@@ -1,4 +1,0 @@
-export default {
-    CONTENTFUL_KEY: '9r1m7ediocr7',
-    CONTENTFUL_TOKEN: '28886ddd098ce77f6696a38a8b1f7d4e24be7b391f16af76c86ca2068f4c608e'
-}

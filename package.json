@@ -1,42 +1,47 @@
 {
-  "name": "brunch-app",
-  "description": "Brunch.io application",
-  "private": true,
-  "author": "Brunch",
-  "version": "0.0.1",
-  "repository": "",
+  "name": "@thebignorth/base-kulture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app.js",
   "scripts": {
-    "watch": " ./node_modules/brunch/bin/brunch watch --server",
-    "dev": "./node_modules/brunch/bin/brunch build",
-    "build": "./node_modules/brunch/bin/brunch build --production"
+    "test": "./node_modules/.bin/jest --coverage tests",
+    "test:watch": "./node_modules/.bin/jest --coverage --watch tests",
+    "dev": "./node_modules/.bin/webpack --config webpack.config.js",
+    "production": "environment=production ./node_modules/.bin/webpack --config webpack.config.js"
   },
-  "pre-commit": [
-    "build"
-  ],
-  "dependencies": {
-    "contentful": "^5.0.2",
-    "dotenv": "^4.0.0",
-    "react-waypoint": "^7.3.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gemmadlou/chad-portfolio.git"
   },
+  "author": "Gemma Black <gblackuk@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gemmadlou/chad-portfolio/issues"
+  },
+  "homepage": "https://github.com/gemmadlou/chad-portfolio#readme",
   "devDependencies": {
-    "autoprefixer": "^6.3",
-    "babel-brunch": "^6.1.1",
-    "babel-preset-latest": "^6.24.1",
-    "babel-preset-react": "^6.23.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "brunch": "^2.10.10",
-    "clean-css-brunch": "^2",
-    "csswring": "^5.1",
-    "deepcopy": "^0.6.3",
-    "jgb-slider": "^0.2",
-    "postcss-brunch": "^2.0",
-    "pre-commit": "^1.2.2",
-    "react": "^15.4.2",
-    "react-addons-css-transition-group": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router-dom": "^4.0.0",
-    "react-transition-group": "^1.1.1",
-    "sass-brunch": "^1.9.2",
-    "uglify-js-brunch": "^2"
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.1.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.10",
+    "husky": "^1.0.0-rc.1",
+    "jest": "^22.1.4",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2",
+    "uglifyjs-webpack-plugin": "^1.1.6",
+    "webpack": "^3.11.0"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run production && git add dist && npm run test"
+    }
   }
 }
