@@ -1,3 +1,10 @@
-body {
-    background: red;
+@import "~reset-css/reset";
+@import "~tachyons-sass/tachyons.scss";
+@import "./tachyons-extended/css-grid";
+@import "./tachyons-extended/object-fit";
+@import "./tachyons-extended/fill";
+@import "./icons/hamburger";
+
+img {
+    display: block;
 }

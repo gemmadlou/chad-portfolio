@@ -1,0 +1,105 @@
+/*
+    CSS GRID
+
+    .dg = display grid
+
+    Modifiers
+     1  = 1st step in columns or rows
+     2  = 2nd step in columns or rows
+     3  = 3rd step in columns or rows
+     4  = 4th step in columns or rows
+     5  = 5th step in columns or rows
+     6  = 6st step in columns or rows
+     7  = 7nd step in columns
+     8  = 8rd step in columns
+     9  = 9th step in columns
+     10 = 10th step in columns
+     11 = 11th step in columns
+     12 = 12th step in columns
+
+     Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+ */
+.dg {                           display: grid; }
+.dig {                          display: inline-grid; }
+
+@for $number from 1 through 12 {
+    .gtc-#{$number} {           grid-template-columns: repeat($number, (100% / $number)); }
+}
+
+@for $number from 1 through 6 {
+    .gtr-#{$number} {           grid-template-rows: repeat($number, (100% / $number)); }
+}
+
+@for $number from 1 through 12 {
+    .gac-#{$number} {           grid-auto-columns: (100% / $number); }
+}
+
+@for $number from 1 through 6 {
+    .gar-#{$number} {           grid-auto-rows: (100% / $number); }
+}
+
+@media #{$breakpoint-not-small} {
+    .dg-ns {                    display: grid; }
+    .dig-ns {                   display: inline-grid; }
+
+    @for $number from 1 through 12 {
+        .gtc-#{$number}-ns {    grid-template-columns: repeat($number, (100% / $number)); }
+    }
+    
+    @for $number from 1 through 6 {
+        .gtr-#{$number}-ns {    grid-template-rows: repeat($number, (100% / $number)); }
+    }
+
+    @for $number from 1 through 12 {
+        .gac-#{$number}-ns {    grid-auto-columns: (100% / $number); }
+    }
+
+    @for $number from 1 through 6 {
+        .gar-#{$number}-ns {    grid-auto-rows: (100% / $number); }
+    }
+}
+
+@media #{$breakpoint-medium} {
+    .dg-m {                     display: grid; }
+    .dig-m {                    display: inline-grid; }
+
+    @for $number from 1 through 12 {
+        .gtc-#{$number}-m {     grid-template-columns: repeat($number, (100% / $number)); }
+    }
+    
+    @for $number from 1 through 6 {
+        .gtr-#{$number}-m {     grid-template-rows: repeat($number, (100% / $number)); }
+    }
+
+    @for $number from 1 through 12 {
+        .gac-#{$number}-m {     grid-auto-columns: (100% / $number); }
+    }
+
+    @for $number from 1 through 6 {
+        .gar-#{$number}-m {    grid-auto-rows: (100% / $number); }
+    }
+}
+
+@media #{$breakpoint-large} {
+    .dg-l {                     display: grid; }
+    .dig-l {                    display: inline-grid; }
+
+    @for $number from 1 through 12 {
+        .gtc-#{$number}-l {     grid-template-columns: repeat($number, (100% / $number)); }
+    }
+    
+    @for $number from 1 through 6 {
+        .gtr-#{$number}-l {     grid-template-rows: repeat($number, (100% / $number)); }
+    }
+
+    @for $number from 1 through 12 {
+        .gac-#{$number}-l {     grid-auto-columns: (100% / $number); }
+    }
+
+    @for $number from 1 through 6 {
+        .gar-#{$number}-l {    grid-auto-rows: (100% / $number); }
+    }
+}

@@ -1,0 +1,24 @@
+/**
+ * OBJECT FIT
+ */
+.of-cover {             object-fit: cover; }
+.of-contain {           object-fit: contain; }
+.of-fill {              object-fit: fill; }
+
+@media #{$breakpoint-not-small} {
+    .of-cover-ns {      object-fit: cover; }
+    .of-contain-ns {    object-fit: contain; }
+    .of-fill-ns {       object-fit: fill; }
+}
+
+@media #{$breakpoint-medium} {
+    .of-cover-, {       object-fit: cover; }
+    .of-contain-m {     object-fit: contain; }
+    .of-fill-m {        object-fit: fill; }
+}
+
+@media #{$breakpoint-large} {
+    .of-cover-l {       object-fit: cover; }
+    .of-contain-l {     object-fit: contain; }
+    .of-fill-l {        object-fit: fill; }
+}

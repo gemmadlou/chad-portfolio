@@ -1,0 +1,49 @@
+/*
+
+# Usage 
+
+<svg class="hamburger" version="1.1" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+    <rect width="190" height="20" rx="3" ry="3" y="20" x="5" />
+    <rect width="190" height="20" rx="3" ry="3" y="70" x="5" />
+    <rect width="190" height="20" rx="3" ry="3" y="70" x="5" />
+    <rect width="190" height="20" rx="3" ry="3" y="120" x="5" />
+</svg>
+ */
+ 
+svg.hamburger {
+  
+    rect {
+      &:nth-child(2),
+      &:nth-child(3) {
+        transition: transform 320ms ease-in;
+        transform-origin: 50% 50%;
+      }
+      
+      &:nth-child(1),
+      &:nth-child(4) {
+        opacity: 1;
+        transition: opacity 35ms ease-in .310s;
+      }
+    }
+    
+    &.active {
+      rect {
+        &:nth-child(1),
+        &:nth-child(4) {
+          opacity: 0;
+          transition: opacity .3ms ease-in-out;
+        }
+        
+        &:nth-child(2) {
+          transform: rotate(45deg);
+          transition: transform .3s ease-in;
+        }
+        
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+          transition: transform .3s ease-in;
+          
+        }
+      }
+    }
+  }
