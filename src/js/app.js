@@ -1,11 +1,11 @@
 import domready from 'domready';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Project} from './pages/project.jsx';
+import {App} from './components/App.jsx';
 
 domready(() => {
     ReactDOM.render(
-        <Project/>,
+        <App/>,
         document.getElementById('app')
     );     
 });
