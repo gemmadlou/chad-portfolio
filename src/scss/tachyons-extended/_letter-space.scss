@@ -1,0 +1,25 @@
+/*
+ LETTER SPACING
+*/
+
+@for $i from 1 through 20 {
+.ls#{$i} {          letter-spacing: (0.05em * $i); }
+}
+
+@media #{$breakpoint-not-small} {
+    @for $i from 1 through 20 {
+    .ls#{$i}-ns {   letter-spacing: (0.05em * $i); }
+    }
+}
+
+@media #{$breakpoint-medium} {
+    @for $i from 1 through 20 {
+    .ls#{$i}-m {    letter-spacing: (0.05em * $i); }
+    }
+}
+
+@media #{$breakpoint-large} {
+    @for $i from 1 through 20 {
+    .ls#{$i}-l {    letter-spacing: (0.05em * $i); }
+    }
+}

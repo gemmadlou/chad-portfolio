@@ -43,7 +43,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run production && git add public/dist && npm run test"
+      "pre-commit": "npm run production && npm run test"
     }
   }
 }

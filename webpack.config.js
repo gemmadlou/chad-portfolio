@@ -19,9 +19,7 @@ module.exports = {
     ],
     output: {
         path: path.resolve(__dirname, "public/dist"),
-        filename: "app.js",
-        library: 'baseKulture',
-        libraryTarget: 'umd'
+        filename: "app.js"
     },
     plugins,
     module: {
