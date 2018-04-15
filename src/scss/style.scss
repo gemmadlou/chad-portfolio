@@ -1,5 +1,6 @@
-$breakpoint-medium: 'screen and (min-width: 50rem)';
-$breakpoint-large: 'screen and (min-width: 65em)';
+$breakpoint-not-small: 'screen and (min-width: 38rem)';
+$breakpoint-medium: 'screen and (min-width: 60rem)';
+$breakpoint-large: 'screen and (min-width: 75em)';
 
 @import "~reset-css/reset";
 @import "~tachyons-sass/tachyons.scss";
