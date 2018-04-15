@@ -1,5 +1,5 @@
 import React from 'react';
-import {Project} from '../pages/project.jsx';
+import {route} from './routes.jsx';
 
 export const App = () => {
     return <div className="h-100">
@@ -29,7 +29,7 @@ export const App = () => {
             </svg>
         </a>
 
-        <Project />
+        {route(window.location.hash)}
 
     </div>
 }
