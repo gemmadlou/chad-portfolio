@@ -1,3 +1,7 @@
-module.exports = (() => {
-    console.log('NPM Starter Plugin Is Active!');
-});
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+    <h1>Hello</h1>,
+    document.getElementById('app')
+);
