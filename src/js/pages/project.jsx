@@ -4,8 +4,7 @@ import ReactDOM from 'react-dom';
 export const Project = () => {
     return <div className="h-100 overflow-y-auto roboto">
 
-        <div className="h-100 relative">
-            <img className="of-cover absolute top-0 left-0 h-100 w-100" src='http://unsplash.it/1000/1000' />
+        <div className="h-100 relative cover bga-fixed" style={{'background-image': 'url(http://unsplash.it/1000/1000)'}}>
             <div className="absolute top-0 left-0 right-0 bottom-0 bg-black-10"></div>
             <div className=" white-90 sans-serif relative dt f3 w-100 h-100 ttu">
                 <div className="dtc tc v-mid">
@@ -33,7 +32,7 @@ export const Project = () => {
         <div className="h-100 relative">
             <div className="black sans-serif relative dt f3 w-100 h-100 ttu">
                 <div className="dtc tc v-mid">
-                    <span className="mb4 fw8 ls4">Lorem ipsum dolor sit amet</span>
+                    <span className="ma4 fw8 ls4">Lorem ipsum dolor sit amet</span>
                 </div>
             </div>
         </div>
@@ -58,6 +57,15 @@ export const Project = () => {
                 <img className="of-cover absolute top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
             </li>
         </ul>
+
+        <div className="h-100 relative cover bga-fixed" style={{'background-image': 'url(http://unsplash.it/1000/1000)'}}>
+            <div className="absolute top-0 left-0 right-0 bottom-0 bg-black-10"></div>
+            <div className=" white-90 sans-serif relative dt f3 w-100 h-100 ttu">
+                <div className="dtc tc v-mid">
+                    <span className="mb4 fw8 ls4">Something wonderful</span>
+                </div>
+            </div>
+        </div>
 
     </div>
 }

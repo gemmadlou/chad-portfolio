@@ -1,0 +1,17 @@
+/*
+    BACKGROUND ATTACHMENT
+*/
+
+.bga-fixed {        background-attachment: fixed; }
+
+@media #{$breakpoint-not-small} {
+    .bga-fixed-ns { background-attachment: fixed; }
+}
+
+@media #{$breakpoint-medium} {
+    .bga-fixed-m { background-attachment: fixed; }
+}
+
+@media #{$breakpoint-large} {
+    .bga-fixed-l { background-attachment: fixed; }
+}
