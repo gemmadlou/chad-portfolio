@@ -28,7 +28,7 @@ export class App extends React.Component {
                 </svg>
             </a>   
 
-            <a href="" className="dim z-1 w2 h2 fixed top-1 right-1 right-2-m">
+            <a href="" className="dim z-1 w2 h2 fixed top-1 right-2">
                 <svg className="hamburger" version="1.1" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
                     <rect width="190" height="20" rx="3" ry="3" y="20" x="5" />
                     <rect width="190" height="20" rx="3" ry="3" y="70" x="5" />

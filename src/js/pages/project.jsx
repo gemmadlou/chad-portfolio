@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 export const Project = () => {
     return <div className="h-100 overflow-y-auto roboto">
 
-        <div className="h-100 relative cover bga-fixed" style={{'background-image': 'url(http://unsplash.it/1000/1000)'}}>
+        <div className="h-100 relative cover bga-fixed" style={{backgroundImage: 'url(http://unsplash.it/1000/1000)'}}>
             <div className="absolute top-0 left-0 right-0 bottom-0 bg-black-10"></div>
             <div className=" white-90 sans-serif relative dt f3 w-100 h-100 ttu">
                 <div className="dtc tc v-mid">
@@ -37,28 +37,28 @@ export const Project = () => {
             </div>
         </div>
 
-        <ul className="relative dg gac-1 gar-1 gac-2-ns gtc-2-ns gtr-2-ns gar-2-ns gtc-3-m gtr-2-m gar-2-m gac-3-m h-100 min-h-100-ns">
+        <ul className="relative dg gac-1 gar-1 gac-2-ns gtc-2-ns gtr-2-ns gar-2-ns gtc-3-m gtr-2-m gar-2-m gac-3-m min-h-100">
             <li className="relative">
-                <img className="of-cover absolute top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
+                <img className="of-cover absolute-ns top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
             </li>
             <li className="relative">
-                <img className="of-cover absolute top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
+                <img className="of-cover absolute-ns top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
             </li>
             <li className="relative">
-                <img className="of-cover absolute top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
+                <img className="of-cover absolute-ns top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
             </li>
             <li className="relative">
-                <img className="of-cover absolute top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
+                <img className="of-cover absolute-ns top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
             </li>
             <li className="relative">
-                <img className="of-cover absolute top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
+                <img className="of-cover absolute-ns top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
             </li>
             <li className="relative">
-                <img className="of-cover absolute top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
+                <img className="of-cover absolute-ns top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
             </li>
         </ul>
 
-        <div className="h-100 relative cover bga-fixed" style={{'background-image': 'url(http://unsplash.it/1000/1000)'}}>
+        <div className="h-100 relative cover bga-fixed" style={{backgroundImage: 'url(http://unsplash.it/1000/1000)'}}>
             <div className="absolute top-0 left-0 right-0 bottom-0 bg-black-10"></div>
             <div className=" white-90 sans-serif relative dt f3 w-100 h-100 ttu">
                 <div className="dtc tc v-mid">
