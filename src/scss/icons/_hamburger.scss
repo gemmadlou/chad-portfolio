@@ -13,6 +13,8 @@
 svg.hamburger {
   
     rect {
+      fill: white;
+      
       &:nth-child(2),
       &:nth-child(3) {
         transition: transform 320ms ease-in;
@@ -28,6 +30,7 @@ svg.hamburger {
     
     &.active {
       rect {
+
         &:nth-child(1),
         &:nth-child(4) {
           opacity: 0;
