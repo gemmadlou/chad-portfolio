@@ -7,13 +7,14 @@ export class App extends React.Component {
 
         this.state = {
             hash: window.location.hash,
-            menu: 'closed' // closed
+            menu: 'closed' // open|closed
         }
 
         window.addEventListener('hashchange', event => {
-            this.setState({
-                hash: window.location.hash
-            });
+            let state = Object.assign(this.state);
+                state.menu = 'closed';
+                state.hash = window.location.hash
+            this.setState(state);
         });
 
         this.handleMenuClick = this.handleMenuClick.bind(this);
