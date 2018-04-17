@@ -5,11 +5,30 @@ export class App extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            hash: window.location.hash,
+            menu: 'closed' // open|closed
+        }
+
         window.addEventListener('hashchange', event => {
-            console.log(event)
+            let state = Object.assign(this.state);
+                state.menu = 'closed';
+                state.hash = window.location.hash
+            this.setState(state);
         });
+
+        this.handleMenuClick = this.handleMenuClick.bind(this);
     }
+
+    handleMenuClick(e) {
+        e.preventDefault();
+        let state = Object.assign(this.state);
+            state.menu = state.menu === 'open' ? 'closed' : 'open';
+        this.setState(state);
+    }
+
     render() {   
+
         return <div className="h-100">
             <a className="z-1 w3 h3 fixed top-1 left-1" href="/" title="Base Kulture: Home page">
                 <svg xmlns="http://www.w3.org/2000/svg" className="grow w-100 h-100" viewBox="0 0 1080 1080">
@@ -28,8 +47,10 @@ export class App extends React.Component {
                 </svg>
             </a>   
 
-            <a href="" className="dim z-1 w2 h2 fixed top-1 right-2">
-                <svg className="hamburger" version="1.1" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+            <a href="" 
+                onClick={this.handleMenuClick} 
+                className="z-2 w2 h2 fixed top-1 right-2">
+                <svg className={`hamburger ${this.state.menu === 'open' ? 'active' : ''}`} version="1.1" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
                     <rect width="190" height="20" rx="3" ry="3" y="20" x="5" />
                     <rect width="190" height="20" rx="3" ry="3" y="70" x="5" />
                     <rect width="190" height="20" rx="3" ry="3" y="70" x="5" />
@@ -37,7 +58,25 @@ export class App extends React.Component {
                 </svg>
             </a>
 
-            {route(window.location.hash)}
+            <div className={`${this.state.menu === 'open' ? '' : 'dn'} fixed z-1 top-0 left-0 w-100 h-100 bg-black`}>
+                <div className="dt h-100 w-100 roboto">
+                    <div className="dtc tc v-mid">
+                        <ul className="pa4 ttu fw8 ls4 f3">
+                            <li className="mb5">
+                                <a className="white link" href="#">Home</a>
+                            </li>
+                            <li className="mb5">
+                                <a className="white link" href="#about">About</a>
+                            </li>
+                            <li className="mb5">
+                                <a className="white link" href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            {route(this.state.hash)}
         </div>
     }
 }
