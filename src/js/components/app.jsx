@@ -1,5 +1,8 @@
 import React from 'react';
-import {route} from './routes.jsx';
+import { route } from './routes.jsx';
+import { client } from '../services/contentful';
+
+console.log(client);
 
 export class App extends React.Component {
     constructor(props) {
