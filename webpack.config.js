@@ -1,7 +1,6 @@
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const webpack = require('webpack');
 
 let plugins = [];
 
@@ -11,7 +10,6 @@ if (process.env.environment !== 'production') {
 
 if (process.env.environment === 'production') {
     plugins.push(new UglifyJsPlugin);
-    new webpack.EnvironmentPlugin(['CONTENTFUL_SPACE_ID', 'CONTENTFUL_ACCESS_TOKEN', 'environment'])
 }
 
 module.exports = {
