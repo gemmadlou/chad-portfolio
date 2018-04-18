@@ -2,9 +2,11 @@ const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
-let plugins = [
-    new Dotenv()
-];
+let plugins = [];
+
+if (process.env.environment !== 'production') {
+    plugins.push(new Dotenv);
+}
 
 if (process.env.environment === 'production') {
     plugins.push(new UglifyJsPlugin);
