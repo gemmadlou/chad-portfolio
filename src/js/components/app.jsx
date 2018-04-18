@@ -1,8 +1,7 @@
 import React from 'react';
 import { route } from './routes.jsx';
-import { client } from '../services/contentful';
-
-console.log(client);
+import { client, getProjects } from '../services/contentful';
+import { store } from '../infrastructure/state';
 
 export class App extends React.Component {
     constructor(props) {
@@ -10,7 +9,8 @@ export class App extends React.Component {
 
         this.state = {
             hash: window.location.hash,
-            menu: 'closed' // open|closed
+            menu: 'closed', // open|closed
+            store: store.getState()
         }
 
         window.addEventListener('hashchange', event => {
@@ -18,6 +18,20 @@ export class App extends React.Component {
                 state.menu = 'closed';
                 state.hash = window.location.hash
             this.setState(state);
+        });
+
+        getProjects()
+            .then(projects => {
+                store.dispatch({
+                    type: 'SET_PROJECTS',
+                    projects
+                });
+            });
+
+        store.subscribe(() => {
+            this.setState({
+                store: store.getState()
+            });
         });
 
         this.handleMenuClick = this.handleMenuClick.bind(this);
@@ -33,7 +47,7 @@ export class App extends React.Component {
     render() {   
 
         return <div className="h-100">
-            <a className="z-1 w3 h3 fixed top-1 left-1" href="/" title="Base Kulture: Home page">
+            <a className="z-1 w3 h3 fixed top-1 left-1" href="#" title="Base Kulture: Home page">
                 <svg xmlns="http://www.w3.org/2000/svg" className="grow w-100 h-100" viewBox="0 0 1080 1080">
                     <rect width="1080" height="1079.76"></rect>
                     <path className="fill-white" d="M350.21,183.28a28,28,0,0,1,8.43,20.6V438a12,12,0,0,1-3.28,8.9q-3.29,3.29-19.2,12.64L349.27,468q9.35,5.62,9.36,16.86V707.69a28.78,28.78,0,0,1-29,29H207.87V174.86H329.6A28,28,0,0,1,350.21,183.28Zm-84.28,49.63V408a11.28,11.28,0,0,0,2.34,7.49q2.33,2.81,15.45,11.24,11.24-7.48,14-10.77a11.79,11.79,0,0,0,2.81-8V232.92Zm34.65,276.25A12.18,12.18,0,0,0,294,497.93l-10.3-5.62-11.24,5.62a12.15,12.15,0,0,0-6.56,11.24v169.5h34.65Z"></path>
@@ -79,7 +93,7 @@ export class App extends React.Component {
                 </div>
             </div>
 
-            {route(this.state.hash)}
+            {route(this.state.hash, this.state.store)}
         </div>
     }
 }

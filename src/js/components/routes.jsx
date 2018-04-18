@@ -10,28 +10,32 @@ import {Project} from '../pages/project.jsx';
 let routes = [
     {
         router: new Route(''),
-        component: <Home />
+        component: Home
     },
     {
         router: new Route('contact'),
-        component: <Contact />
+        component: Contact
     },
     {
         router: new Route('about'),
-        component: <About />
+        component: About
     },
     {
         router: new Route('project/:project'),
-        component: <Project />
+        component: Project
     }
 ];
 
-export const route = hashpart => {
+export const route = (hashpart, data = {}) => {
+
     let hash = hashpart.replace('#', '');
 
-    let found = routes.find(route => {
-        return route.router.match(hash);
+    let found = routes.map(route => {
+        route.match = route.router.match(hash);
+        return route;  
+    }).find(route => {
+        return route.match;
     });
 
-    return !found ? <Four0Four /> : found.component;
+    return !found ? <Four0Four /> : <found.component routeParams={found.match} data={data} />;
 }

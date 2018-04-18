@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "contentful": "^6.0.0",
+    "data.maybe": "^1.2.2",
     "dotenv-webpack": "^1.5.5"
   }
 }

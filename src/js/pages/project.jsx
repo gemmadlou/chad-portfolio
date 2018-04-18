@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-export const Project = () => {
+export const Project = ({routeParams, data}) => {
     return <div className="h-100 overflow-y-auto roboto">
 
         <div className="h-100 relative cover bga-fixed" style={{backgroundImage: 'url(http://unsplash.it/1000/1000)'}}>
