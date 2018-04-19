@@ -26,7 +26,7 @@ export const Project = ({routeParams, data}) => {
             <div className="fl-m h-50 relative left-0 top-0 absolute-m w-60-m w-two-thirds-l h-100-m">
                 <img 
                     className="of-cover absolute top-0 left-0 h-100 w-100" 
-                    src='http://unsplash.it/1000/1000' />
+                    src={project.heroImage} />
             </div>
             <div className="lh-copy fr-m f5 relative m-50-m pa3 pa4-m pl5-l pr5-l w-40-m w-third-l">
                 <h1>{project.blurbHeading}</h1>
@@ -46,24 +46,13 @@ export const Project = ({routeParams, data}) => {
         </div>
 
         <ul className="relative dg gac-1 gar-1 gac-2-ns gtc-2-ns gtr-2-ns gar-2-ns gtc-3-m gtr-2-m gar-2-m gac-3-m min-h-100">
-            <li className="relative">
-                <img className="of-cover absolute-ns top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
-            </li>
-            <li className="relative">
-                <img className="of-cover absolute-ns top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
-            </li>
-            <li className="relative">
-                <img className="of-cover absolute-ns top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
-            </li>
-            <li className="relative">
-                <img className="of-cover absolute-ns top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
-            </li>
-            <li className="relative">
-                <img className="of-cover absolute-ns top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
-            </li>
-            <li className="relative">
-                <img className="of-cover absolute-ns top-0 left-0 h-100 w-100" src="http://unsplash.it/1000/1000" />
-            </li>
+            {project.gallery.map((image, index) => {
+                return <li key={index} className="relative">
+                    <img 
+                        className="of-cover absolute-ns top-0 left-0 h-100 w-100" 
+                        src={image} />
+                </li>
+            })}
         </ul>
 
         <div className="h-100 relative cover bga-fixed" style={{backgroundImage: `url(${project.footerImage})`}}>

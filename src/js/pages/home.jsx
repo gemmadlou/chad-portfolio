@@ -6,7 +6,7 @@ const panels = projects => {
         return <li key={index} className="relative">
             <a href={`#project/${id}`} className="no-underline">
                 <img className="of-cover absolute top-0 left-0 h-100 w-100" src={image} />
-                <div className="absolute top-0 left-0 right-0 bottom-0 bg-black-80"></div>
+                <div className="absolute top-0 left-0 right-0 bottom-0 bg-black-70"></div>
                 <div className="roboto white-90 sans-serif relative dt f3 w-100 h-100 ttu">
                     <div className="dtc tc v-mid">
                         <div className="mb4 fw8 ls4">{client}</div>

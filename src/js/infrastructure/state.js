@@ -32,8 +32,11 @@ let state
                     image: get(['fields', 'introImage', 'fields', 'file', 'url'], item),
                     blurbHeading: get(['fields', 'introHeading'], item),
                     blurb: asMarkdown(get(['fields', 'projectBlurb'], item)),
-                    quoteImage: get(['fields', 'heroImage', 'fields', 'file', 'url'], item),
+                    heroImage: get(['fields', 'heroImage', 'fields', 'file', 'url'], item),
                     quote: get(['fields', 'quote'], item),
+                    gallery: get(['fields', 'gallery'], item) ? get(['fields', 'gallery'], item).map(image => {
+                        return get(['fields', 'file', 'url'], image);
+                    }) : [],
                     footerImage: get(['fields', 'footerImage', 'fields', 'file', 'url'], item),
                     footerQuote: get(['fields', 'footerQuote'], item)
                 }));
