@@ -10,6 +10,10 @@ $breakpoint-large: 'screen and (min-width: 75em)';
 @import "./tachyons-extended/letter-space";
 @import "./tachyons-extended/background-attachment";
 @import "./tachyons-extended/mix-blend-mode";
+@import "./tachyons-extended/animation-name";
+@import "./tachyons-extended/animation-duration";
+@import "./tachyons-extended/animation-fill-mode";
+@import "./tachyons-extended/will-change";
 @import "./icons/hamburger";
 @import "./scope/s-body-copy";
 

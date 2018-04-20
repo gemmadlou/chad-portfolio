@@ -1,0 +1,46 @@
+.zoom-out { animation-name: zoom-out; }
+.zoom-in { animation-name: zoom-in; }
+.fade-out { animation-name: fade-out; }
+.fade-in { animation-name: fade-in; }
+
+@at-root {
+    @keyframes zoom-out {
+        0% {
+            transform: scale(1.05, 1.05);
+        }
+    
+        100% {
+            transform: scale(1,1);
+        }
+    }
+
+    @keyframes zoom-in {
+        0% {
+            transform: scale(1,1);
+        }
+    
+        100% {
+            transform: scale(1.05, 1.05);
+        }
+    }
+
+    @keyframes fade-out {
+        0% {
+            opacity: 100%;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 100%;
+        }
+    }
+}

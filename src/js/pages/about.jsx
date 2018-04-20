@@ -12,9 +12,9 @@ export const About = ({routeParams, data}) => {
     }
 
     return <div className="h-100 overflow-y-auto roboto ">
-        <div className="fl-m h-50 relative fixed-m w-60-m w-two-thirds-l h-100-m">
+        <div className="fl-m h-50 overflow-hidden relative fixed-m w-60-m w-two-thirds-l h-100-m">
             <img 
-                className="of-cover absolute top-0 left-0 h-100 w-100" 
+                className="zoom-out anm-duration-3 of-cover absolute top-0 left-0 h-100 w-100" 
                 src={page.image} />
         </div>
         <div 

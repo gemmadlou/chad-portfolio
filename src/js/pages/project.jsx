@@ -9,20 +9,23 @@ export const Project = ({routeParams, data}) => {
     if (!project) {
         return <div>loading...</div>;
     }
-    return <div className="h-100 overflow-y-auto roboto">
+    return <div className="h-100 overflow-y-auto overflow-x-hidden roboto">
 
-        <div  
-            className="h-100 relative cover bg-top bga-fixed" 
-            style={{backgroundImage: `url(${project.image})` }}>
+        <div
+            className="h-100 w-100 relative overflow-hidden">
+            <div  
+                className="fixed top-0 left-0 right-0 bottom-0 cover bg-top zoom-out anm-duration-3 anm-fm-forwards wc-transform" 
+                style={{backgroundImage: `url(${project.image})`, 'z-index': '-1' }}>
+                </div>
             <div className="absolute top-0 left-0 right-0 bottom-0 bg-black-20"></div>
-            <div className=" white-90 sans-serif relative dt f3 w-100 h-100 ttu">
-                <div className="dtc tc v-mid">
+            <div className="white-90 sans-serif relative dt f3 w-100 h-100 ttu">
+                <div className="dtc tc v-mid fade-in anm-duration-3 anm-fm-forwards">
                     <span className="pa3 db mb4 fw8 ls4">{project.client}</span>
                 </div>
             </div>
         </div>
 
-        <div className="min-h-100 relative bg-near-white">
+        <div className="min-h-100-m relative bg-near-white">
             <div className="fl-m h-50 relative left-0 top-0 absolute-m w-60-m w-two-thirds-l h-100-m">
                 <img 
                     className="of-cover absolute top-0 left-0 h-100 w-100" 
@@ -35,7 +38,7 @@ export const Project = ({routeParams, data}) => {
             </div>
         </div>
 
-        <div className="h-100 relative">
+        <div className="h-100 relative bg-white">
             <div className="roboto relative dt f3 w-100 h-100 ttu">
                 <div className="dtc tc v-mid">
                     <span className="pa2 db fw8 ls4">
@@ -55,7 +58,11 @@ export const Project = ({routeParams, data}) => {
                 </li>
             })}
         </ul>
-        <div className="h-100 cb relative cover bg-top bga-fixed" style={{backgroundImage: `url(${project.footerImage})`}}>
+        <div className="h-100 w-100 cb relative overflow-hidden">
+            <div  
+                className="absolute top-0 left-0 right-0 bottom-0 cover bg-top bga-fixed" 
+                style={{backgroundImage: `url(${project.footerImage})` }}>
+                </div>
             <div className="absolute top-0 left-0 right-0 bottom-0 bg-black-40"></div>
             <div className=" white-90 sans-serif relative dt f3 w-100 h-100 ttu">
                 <div className="dtc tc v-mid">
