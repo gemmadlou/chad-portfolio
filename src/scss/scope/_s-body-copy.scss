@@ -1,4 +1,6 @@
 .s-body-copy {
+    @extend .lh-copy;
+
     h1 {
         @extend .f2;
         @extend .fw6;
@@ -20,6 +22,6 @@
     }
 
     a {
-        @extend .black;
+        color: inherit;
     }
 }

@@ -1,0 +1,22 @@
+$mix-blend-modes: (
+    n: normal,
+    m: multiply,
+    s: screen,
+    o: overlay,
+    d: darken,
+    l: lighten,
+    cd: color-dodge,
+    cb: color-burn,
+    hl: hard-light,
+    sl: soft-light,
+    diff: difference,
+    e: exclusion,
+    h: hue,
+    sat: saturation,
+    c: color,
+    lum: luminosity
+);
+
+@each $name, $mode in $mix-blend-modes {
+    .mix-#{$name} { mix-blend-mode: $mode; }
+}

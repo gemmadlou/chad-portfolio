@@ -74,8 +74,8 @@ export class App extends React.Component {
 
             <a href="" 
                 onClick={this.handleMenuClick} 
-                className="z-2 w2 h2 fixed top-1 right-2">
-                <svg className={`hamburger ${this.state.menu === 'open' ? 'active' : ''}`} version="1.1" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+                className="z-2 fixed mix-s top-1 right-2">
+                <svg className={`hamburger w2 h2 bg-black mix-cd pa2 ${this.state.menu === 'open' ? 'active' : ''}`} version="1.1" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
                     <rect width="190" height="20" rx="3" ry="3" y="20" x="5" />
                     <rect width="190" height="20" rx="3" ry="3" y="70" x="5" />
                     <rect width="190" height="20" rx="3" ry="3" y="70" x="5" />
@@ -87,13 +87,13 @@ export class App extends React.Component {
                 <div className="dt h-100 w-100 roboto">
                     <div className="dtc tc v-mid">
                         <ul className="pa4 ttu fw8 ls4 f3">
-                            <li className="mb5">
+                            <li className="mb5 dim">
                                 <a className="white link" href="#">Home</a>
                             </li>
-                            <li className="mb5">
+                            <li className="mb5 dim">
                                 <a className="white link" href="#about">About</a>
                             </li>
-                            <li className="mb5">
+                            <li className="mb5 dim">
                                 <a className="white link" href="#contact">Contact</a>
                             </li>
                         </ul>
