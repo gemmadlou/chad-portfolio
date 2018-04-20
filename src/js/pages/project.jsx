@@ -14,9 +14,11 @@ export const Project = ({routeParams, data}) => {
         <div
             className="h-100 w-100 relative overflow-hidden">
             <div  
-                className="fixed top-0 left-0 right-0 bottom-0 cover bg-top zoom-out anm-duration-3 anm-fm-forwards wc-transform" 
+                className="fixed top-0 left-0 right-0 bottom-0 cover bg-top zoom-in anm-duration-3 anm-fm-forwards wc-transform" 
                 style={{backgroundImage: `url(${project.image})`, 'z-index': '-1' }}>
                 </div>
+            
+            <div className="absolute top-0 left-0 right-0 bottom-0 bg-black fade-out anm-duration-3 anm-fm-forwards"></div>
             <div className="absolute top-0 left-0 right-0 bottom-0 bg-black-20"></div>
             <div className="white-90 sans-serif relative dt f3 w-100 h-100 ttu">
                 <div className="dtc tc v-mid fade-in anm-duration-3 anm-fm-forwards">

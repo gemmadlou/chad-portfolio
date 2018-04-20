@@ -1,9 +1,9 @@
 $durations: (
     'duration-3': 3s,
-    'duration-1.5': 1.5s,
-    'duration-0.7': .7s,
-    'duration-0.3': .3s,
-    'duration-0.15': .15s,
+    'duration-1pt5': 1.5s,
+    'duration-0pt7': .7s,
+    'duration-0pt3': .3s,
+    'duration-0pt15': .15s,
 );
 
 @each $name, $duration in $durations {

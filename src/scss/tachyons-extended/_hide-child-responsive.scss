@@ -1,0 +1,38 @@
+@media #{$breakpoint-not-small} {
+    .hide-child-ns .child {
+        opacity: 0;
+        transition: opacity .15s ease-in;
+    }
+    .hide-child-ns:hover  .child,
+    .hide-child-ns:focus  .child,
+    .hide-child-ns:active .child {
+        opacity: 1;
+        transition: opacity .15s ease-in;
+    }
+}
+
+@media #{$breakpoint-medium} {
+    .hide-child-m .child {
+        opacity: 0;
+        transition: opacity .15s ease-in;
+    }
+    .hide-child-m:hover  .child,
+    .hide-child-m:focus  .child,
+    .hide-child-m:active .child {
+        opacity: 1;
+        transition: opacity .15s ease-in;
+    }
+}
+
+@media #{$breakpoint-large} {
+    .hide-child-l .child {
+        opacity: 0;
+        transition: opacity .15s ease-in;
+    }
+    .hide-child-l:hover  .child,
+    .hide-child-l:focus  .child,
+    .hide-child-l:active .child {
+        opacity: 1;
+        transition: opacity .15s ease-in;
+    }
+}

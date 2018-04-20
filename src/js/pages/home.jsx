@@ -4,11 +4,11 @@ import ReactDOM from 'react-dom';
 const panels = projects => {
     return projects.map(({image, client, id}, index) => {
         return <li key={index} className="relative">
-            <a href={`#project/${id}`} className="hide-child no-underline">
+            <a href={`#project/${id}`} className="hide-child-m no-underline">
                 <img className="of-cover absolute top-0 left-0 h-100 w-100" src={image} />
 
-                <div className="absolute top-0 left-0 right-0 bottom-0 bg-black-20"></div>
-                <div className="child absolute top-0 left-0 right-0 bottom-0 bg-black-70"></div>
+                <div className="absolute top-0 left-0 right-0 bottom-0 bg-black-30"></div>
+                <div className="dn db-m child absolute top-0 left-0 right-0 bottom-0 bg-black-70"></div>
                 <div className="child roboto white-90 sans-serif relative dt f3 w-100 h-100 ttu">
                     <div className="dtc tc v-mid">
                         <div className="mb4 fw8 ls4">{client}</div>
