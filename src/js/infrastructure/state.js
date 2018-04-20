@@ -6,7 +6,7 @@ const get = (p, o) =>
   p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o)
 
 const asMarkdown = input => {
-    return !input ? input : sanitizeHTML(marked(input));
+    return !input ? input : marked(sanitizeHTML(input));
 }
 
 let state 
@@ -41,7 +41,18 @@ let state
                     footerQuote: get(['fields', 'footerQuote'], item)
                 }));
                 break;
+            case 'SET_PAGES':
+                console.log(action.pages)
+                clone.pages = action.pages.items.map(item => ({
+                    slug: item.fields.slug,
+                    template: get(['fields', 'template', 'sys', 'contentType', 'sys', 'id'], item),
+                    content: asMarkdown(get(['fields', 'template', 'fields', 'content'], item)),
+                    image: get(['fields', 'template', 'fields', 'image', 'fields', 'file', 'url'], item)
+                }));
+                break;
         }
+
+        console.log(clone, 'clone')
 
         return clone;
     }

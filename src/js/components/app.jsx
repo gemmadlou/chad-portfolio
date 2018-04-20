@@ -1,6 +1,6 @@
 import React from 'react';
 import { route } from './routes.jsx';
-import { client, getProjects } from '../services/contentful';
+import { client, getProjects, getPages } from '../services/contentful';
 import { store } from '../infrastructure/state';
 
 export class App extends React.Component {
@@ -25,6 +25,14 @@ export class App extends React.Component {
                 store.dispatch({
                     type: 'SET_PROJECTS',
                     projects
+                });
+            });
+
+        getPages()
+            .then(pages => {
+                store.dispatch({
+                    type: 'SET_PAGES',
+                    pages
                 });
             });
 

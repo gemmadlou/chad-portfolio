@@ -8,13 +8,16 @@ export const client
 
 export const CONTENT_TYPE_ID 
     = {
-        PROJET: 'project',
+        PROJECT: 'project',
         PAGE: 'page'
     }
 
 export const getProjects
-    = () => {
-        return client.getEntries({
-            content_type: CONTENT_TYPE_ID.PROJET
-        })
-    }
+    = () => client.getEntries({ 
+        content_type: CONTENT_TYPE_ID.PROJECT 
+    });
+
+export const getPages
+    = () => client.getEntries({ 
+        content_type: CONTENT_TYPE_ID.PAGE 
+    });

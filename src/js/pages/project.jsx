@@ -5,7 +5,7 @@ const getProject = (projects, id) => projects.find(project => project.id === id)
 
 export const Project = ({routeParams, data}) => {
     let project = getProject(data.projects, routeParams.project);
-    console.log(project, '#');
+    
     if (!project) {
         return <div>loading...</div>;
     }
