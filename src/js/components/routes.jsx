@@ -27,7 +27,8 @@ let routes = [
 ];
 
 export const route = (hashpart, data = {}) => {
-
+    let test = new Route(':route');
+    
     let hash = hashpart.replace('#', '');
 
     let found = routes.map(route => {

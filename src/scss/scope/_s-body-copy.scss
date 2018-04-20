@@ -1,5 +1,25 @@
 .s-body-copy {
+    h1 {
+        @extend .f2;
+        @extend .fw6;
+        @extend .mb4;
+    }
+
+    h2 {
+        @extend .f4;
+        @extend .fw6;
+        @extend .mb4;
+    }
+
+    h3 {
+        @extend .fw6;
+    }
+
     p {
         @extend .mb4;
+    }
+
+    a {
+        @extend .black;
     }
 }

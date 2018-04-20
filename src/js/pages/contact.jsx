@@ -1,25 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-export const Contact = () => {
+const getContactPage = pages => pages.find(page => page.slug === 'contact');
+
+export const Contact = ({routeParams, data}) => {
+    
+    let page = getContactPage(data.pages);
+
+    if (!page) {
+        return <div>loading</div>;
+    }
+
     return <div className="h-100 overflow-y-auto roboto ">
-        <div className="fl-m h-50 relative w-60-m w-two-thirds-l h-100-m">
-            <img className="of-cover absolute top-0 left-0 h-100 w-100" src='http://unsplash.it/1000/1000' />
+        <div className="fl-m h-50 relative fixed-m w-60-m w-two-thirds-l h-100-m">
+            <img 
+                className="of-cover absolute top-0 left-0 h-100 w-100" 
+                src={page.image} />
         </div>
-        <div className="lh-copy f5 pa3 pa4-m pl5-l w-40-m w-third-l fl-m">
-            <h1 className="fw6 f3 mb4">Get in contact</h1>
-
-            <h3 className="fw6">Email</h3>
-            <p className="mb4">hello@world.com</p>
-
-            <h3 className="fw6">Phone</h3>
-            <p className="mb4">01234 567 890</p>
-
-            <h3 className="fw6">Address</h3>
-            <p className="mb4">44 canvas street
-                <br />Regan Road
-                <br />EC1 4AD
-            </p>
+        <div 
+            className="s-body-copy lh-copy fr-m f5 relative m-50-m pa3 pa4-m pl5-l w-40-m w-third-l"
+            dangerouslySetInnerHTML={{__html: page.content}}>
         </div>
     </div>;
 }
